@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react"
 import Container from "../Container/Container"
 import { Link, NavLink } from "react-router-dom"
+import { HiBars3BottomRight } from "react-icons/hi2";
+import { RxCross2 } from "react-icons/rx";
 
 // Profile Dropdown
 const ProfileDropDown = (props) => {
@@ -22,7 +24,7 @@ const ProfileDropDown = (props) => {
     }, [])
 
     return (
-        <div className="bg-opacity-80 w-full">
+        <div className="bg-opacity-80 w-full z-50">
             <div className={`relative ${props.class} z-50 w-full`}>
                 <div className="">
                     <div className="flex items-center space-x-4">
@@ -74,7 +76,7 @@ const NavBar = () => {
     ]
 
     return (
-        <div className="bg-white bg-opacity-80 sticky top-0">
+        <div className="bg-white bg-opacity-80 sticky top-0 z-50">
             <Container>
                 <nav className="sticky w-full top-0">
                     <div className="flex justify-between items-center space-x-8 py-3 mx-auto">
@@ -82,12 +84,12 @@ const NavBar = () => {
                             <Link to="/" className=" font-ubuntu font-semibold text-2xl md:text-3xl lg:text-4xl">Fit<span className="text-[#DC5F00]">Vessel</span></Link>
                         </div>
                         <div className="flex items-center justify-between">
-                            <div className={` absolute z-20 w-full top-16 left-0 p-4 border-b lg:static lg:block lg:border-none ${menuState ? '' : 'hidden'}`}>
+                            <div className={` absolute z-50 w-full top-16 left-0 p-4 border-b lg:static lg:block lg:border-none ${menuState ? '' : 'hidden'}`}>
                                 <ul className=" flex items-center gap-6 md:gap-8 lg:gap-16">
                                     {
                                         navLinks.map((item, idx) => (
                                             <li key={idx} className="text-lg font-medium">
-                                                <NavLink to={item.to}>{item.label}</NavLink>
+                                                <NavLink to={item.to} className={({isActive}) => isActive? 'text-[#DC5F00] border-b-2 border-[#DC5F00] duration-150' : ''}>{item.label}</NavLink>
                                             </li>
                                         ))
                                     }
@@ -108,13 +110,9 @@ const NavBar = () => {
                             >
                                 {
                                     menuState ? (
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                        </svg>
+                                        <RxCross2 className="text-2xl text-black" />
                                     ) : (
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-                                        </svg>
+                                        <HiBars3BottomRight className="text-2xl text-black" />
                                     )
                                 }
                             </button>

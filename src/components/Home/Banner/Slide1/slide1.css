@@ -1,0 +1,16 @@
+.slide1 {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.50), rgba(255, 0, 0, 0.15)), url("https://media.licdn.com/dms/image/C4E12AQH1OIs22dT-oQ/article-cover_image-shrink_720_1280/0/1646275968196?e=2147483647&v=beta&t=5vh7VYIDZj-LPBL6_T6v9HK2Je0uVNJmL_CuiOhmSLs");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+h2 {
+    text-shadow: 5px 5px 8px black;
+}
+
+.span-text {
+    text-shadow: 2px 3px 8px white;
+}

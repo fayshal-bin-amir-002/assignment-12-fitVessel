@@ -1,0 +1,16 @@
+.slide3 {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.50), rgba(255, 0, 0, 0.15)), url("https://img.freepik.com/free-photo/people-working-out-indoors-together-with-dumbbells_23-2149175410.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+h2 {
+    text-shadow: 5px 5px 8px black;
+}
+
+.span-text {
+    text-shadow: 2px 3px 8px white;
+}
