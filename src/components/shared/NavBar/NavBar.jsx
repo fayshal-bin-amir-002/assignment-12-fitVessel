@@ -3,9 +3,13 @@ import Container from "../Container/Container"
 import { Link, NavLink } from "react-router-dom"
 import { RxCross2 } from "react-icons/rx";
 import { HiMiniBars3BottomRight } from "react-icons/hi2";
+import useAuth from "../../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 
 const ProfileDropDown = (props) => {
+
+    const { user, userLogOut } = useAuth();
 
     const [state, setState] = useState(false)
     const profileRef = useRef()
@@ -24,6 +28,16 @@ const ProfileDropDown = (props) => {
         document.addEventListener('click', handleDropDown)
     }, [])
 
+    const handleLogOut = async () => {
+        await userLogOut()
+        .then(() => {
+            toast.success("Logged out succesfully.");
+        })
+        .catch((error) => {
+            toast.error(error.message);
+        })
+    }
+
     return (
         <div className={`relative ${props.class}`}>
             <div className="flex items-center space-x-4">
@@ -31,13 +45,13 @@ const ProfileDropDown = (props) => {
                     onClick={() => setState(!state)}
                 >
                     <img
-                        src="https://i.postimg.cc/cJ3DWwSx/360-F-553796090-XHr-E6-R9jwm-BJUMo9-HKl41hy-HJ5gqt9oz.jpg"
+                        src={user?.photoURL || "https://i.postimg.cc/cJ3DWwSx/360-F-553796090-XHr-E6-R9jwm-BJUMo9-HKl41hy-HJ5gqt9oz.jpg"}
                         className="w-full h-full rounded-full z-40"
                     />
                 </button>
                 <div className="lg:hidden">
-                    <span className="block">Micheal John</span>
-                    <span className="block text-sm text-gray-500">john@gmail.com</span>
+                    <span className="block">{user?.displayName || "Unknown"}</span>
+                    <span className="block text-sm text-gray-500">{user?.email || "Not set"}</span>
                 </div>
             </div>
             <ul className={`bg-white top-12 right-0 mt-5 space-y-5 lg:absolute lg:border lg:rounded-md lg:text-sm lg:w-52 lg:shadow-md lg:space-y-0 lg:mt-0 ${state ? '' : 'lg:hidden'}`}>
@@ -51,12 +65,19 @@ const ProfileDropDown = (props) => {
                     ))
                 }
                 <li className="block lg:p-2.5">
-                    <Link>
-                        <button className="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#DC5F00] text-[#DC5F00]">
-                            <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#DC5F00] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                            <span className="relative text-[#DC5F00] transition duration-300 group-hover:text-white ease">Login</span>
-                        </button>
-                    </Link>
+                    {
+                        user ?
+                            <button onClick={handleLogOut} className="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#DC5F00] text-[#DC5F00]">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#DC5F00] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                                <span className="relative text-[#DC5F00] transition duration-300 group-hover:text-white ease">Log Out</span>
+                            </button> :
+                            <Link to="/login">
+                                <button className="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#DC5F00] text-[#DC5F00]">
+                                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#DC5F00] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                                    <span className="relative text-[#DC5F00] transition duration-300 group-hover:text-white ease">Login</span>
+                                </button>
+                            </Link>
+                    }
                 </li>
             </ul>
         </div>
@@ -64,6 +85,8 @@ const ProfileDropDown = (props) => {
 }
 
 const NavBar = () => {
+
+    const { user } = useAuth();
 
     const [menuState, setMenuState] = useState(false)
 
