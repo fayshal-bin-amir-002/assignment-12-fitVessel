@@ -4,7 +4,7 @@ import SectionHeader from "../../shared/SectionHeader/SectionHeader";
 const Featured = () => {
     return (
         <Container>
-            <div className="max-w-screen-2xl mx-auto my-12 md:my-16 lg:my-20 xl:my-24">
+            <div className="my-12 md:my-16 lg:my-20 xl:my-24">
                 <SectionHeader title="Prime Features" description="Explore the standout capabilities of FitVessel. Our advanced tools and intuitive interface support your journey to better health and fitness."></SectionHeader>
 
                 <div className="flex flex-col gap-5 md:gap-7 lg:gap-8 xl:flex-row items-center">
