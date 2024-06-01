@@ -5,6 +5,10 @@ import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import ErrorPage from "../components/shared/ErrorPage/ErrorPage";
 import BlogDetails from "../pages/BlogDetails/BlogDetails";
+import AllTrainer from "../pages/AllTrainer/AllTrainer";
+import AllClasses from "../pages/AllClasses/AllClasses";
+import DashBoard from "../layouts/DashBoard";
+import Profile from "../pages/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -28,9 +32,25 @@ const router = createBrowserRouter([
         path: "/blog/:id",
         loader: ({params}) => fetch(`http://localhost:3000/blog/${params.id}`),
         element: <BlogDetails></BlogDetails>
-      }
+      },
+      {
+        path: "/all-trainer",
+        element: <AllTrainer></AllTrainer>
+      },
+      {
+        path: "/all-classes",
+        element: <AllClasses></AllClasses>
+      },
+      {
+        path: "/profile",
+        element: <Profile></Profile>
+      },
     ]
   },
+  {
+    path: "/dashboard",
+    element: <DashBoard></DashBoard>
+  }
 ]);
 
 export default router;

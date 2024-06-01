@@ -101,7 +101,7 @@ const NavBar = () => {
                 <nav className=" bg-opacity-80">
                     <div className="flex items-center space-x-24 py-3">
                         <div className="flex-none lg:flex-initial">
-                            <Link className="text-2xl md:text-3xl lg:text-4xl font-ubuntu font-medium">Fit<span className="text-[#DC5F00]">Vessel</span></Link>
+                            <Link to="/" className="text-2xl md:text-3xl lg:text-4xl font-ubuntu font-medium">Fit<span className="text-[#DC5F00]">Vessel</span></Link>
                         </div>
                         <div className="flex-1 flex items-center justify-between">
                             <div className={`bg-white p-3 lg:bg-transparent absolute z-20 w-full top-16 left-0  border-b lg:static lg:block lg:border-none ${menuState ? '' : 'hidden'}`}>
