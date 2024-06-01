@@ -7,9 +7,9 @@ const Featured = () => {
             <div className="max-w-screen-2xl mx-auto my-12 md:my-16 lg:my-20 xl:my-24">
                 <SectionHeader title="Prime Features" description="Explore the standout capabilities of FitVessel. Our advanced tools and intuitive interface support your journey to better health and fitness."></SectionHeader>
 
-                <div className="flex flex-col gap-5 md:gap-7 lg:gap-8 xl:flex-row">
+                <div className="flex flex-col gap-5 md:gap-7 lg:gap-8 xl:flex-row items-center">
                     <div className="mr-0 md:mr-8 mb-6 md:mb-0">
-                        <img className="w-1/2 md:w-full mx-auto rounded-lg shadow-md" src="https://ruckscience.com/wp-content/uploads/2022/07/Anaerobic-Fitness-featured-image.jpg" alt="can_help_banner" />
+                        <img className="w-full mx-auto rounded-lg shadow-md" src="https://ruckscience.com/wp-content/uploads/2022/07/Anaerobic-Fitness-featured-image.jpg" alt="can_help_banner" />
                     </div>
 
                     <div className="flex-1 flex flex-col sm:flex-row flex-wrap -mb-4 -mx-2">

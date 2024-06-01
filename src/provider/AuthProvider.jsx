@@ -2,10 +2,13 @@ import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
 import auth from "../firebase/firebase.config";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import useAxiosPublic from '../hooks/useAxiosPublic';
 
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
+
+    const axiosPublic = useAxiosPublic();
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -39,13 +42,29 @@ const AuthProvider = ({ children }) => {
         })
     }
 
+    const saveUser = async(user) => {
+        const name = user?.displayName;
+        const photo = user?.photoURL;
+        const email = user?.email;
+        const role = "member";
+
+        const newUser = { name, photo, email, role };
+
+        await axiosPublic.post("/users", newUser);
+    }
+
     useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+        const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
             if (currentUser) {
+                const user = { email: currentUser?.email };
+                const { data } = await axiosPublic.post("/jwt", user);
+                localStorage.setItem("access-token", data?.token);
                 setUser(currentUser);
+                saveUser(currentUser);
                 setLoading(false);
             } else {
                 setUser(null);
+                localStorage.removeItem("access-token")
                 setLoading(false);
             }
         });
