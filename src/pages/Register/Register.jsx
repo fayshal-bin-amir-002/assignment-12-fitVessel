@@ -4,7 +4,7 @@ import { useState } from "react";
 import { LuEye } from "react-icons/lu";
 import { LuEyeOff } from "react-icons/lu";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
@@ -13,7 +13,9 @@ import { BiLoaderCircle } from "react-icons/bi";
 
 const Register = () => {
 
-    const { userRegister, userGoogleLogin } = useAuth();
+    const { user, userRegister, userGoogleLogin, updateUserProfile, userLogOut } = useAuth();
+
+    const navigate = useNavigate();
 
     const [showPass, setShowPass] = useState(false);
     const [processing, setProcessing] = useState(false);
@@ -26,20 +28,42 @@ const Register = () => {
 
     const onSubmit = async (data) => {
         setProcessing(true);
-        console.log(data);
-        
+        await userRegister(data.email, data.password)
+        await updateUserProfile(data.name, data.photoUrl)
+            .then(async () => {
+                await userLogOut()
+                    .then(() => {
+                        setProcessing(false);
+                        navigate("/login");
+                        toast.success("Registration successful.");
+                    })
+                    .catch((error) => {
+                        setProcessing(false);
+                        toast.error(error.message);
+                    })
+            })
+            .catch((error) => {
+                setProcessing(false);
+                toast.error(error.message);
+            })
+
     }
 
     const handleGoogleLogin = async () => {
         setProcessing(true);
         await userGoogleLogin()
-            .then((res) => {
-                console.log(res.user);
+            .then(() => {
+                setProcessing(false);
+                navigate("/");
+                toast.success("Logged in successfully.");
             })
             .catch((error) => {
-                console.log(error);
+                setProcessing(false);
+                toast.error(error.message);
             })
     }
+
+    if (user) return <Navigate to="/"></Navigate>
 
     return (
         <Container>

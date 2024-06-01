@@ -4,24 +4,57 @@ import { useState } from "react";
 import { LuEye } from "react-icons/lu";
 import { LuEyeOff } from "react-icons/lu";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
+import { BiLoaderCircle } from "react-icons/bi";
 
 
 const Login = () => {
 
     const { user, userLogin, userGoogleLogin } = useAuth();
 
+    const navigate = useNavigate();
+    const location = useLocation();
+
     const [showPass, setShowPass] = useState(false);
+    const [processing, setProcessing] = useState(false);
 
     const {
         register,
         handleSubmit
     } = useForm()
 
-    const onSubmit = (data) => console.log(data)
+    const onSubmit = async (data) => {
+        setProcessing(true);
+        await userLogin(data.email, data.password)
+            .then(() => {
+                setProcessing(false);
+                navigate(location?.state ? location.state : "/");
+                toast.success("Logged in successfully.");
+            })
+            .catch((error) => {
+                setProcessing(false);
+                toast.error(error.message);
+            })
+    }
+
+    const handleGoogleLogin = async () => {
+        setProcessing(true);
+        await userGoogleLogin()
+            .then(() => {
+                setProcessing(false);
+                navigate(location?.state ? location.state : "/");
+                toast.success("Logged in successfully.");
+            })
+            .catch((error) => {
+                setProcessing(false);
+                toast.error(error.message);
+            })
+    }
+
+    if(user) return <Navigate to="/"></Navigate>
 
     return (
         <Container>
@@ -35,7 +68,7 @@ const Login = () => {
                     </div>
                     <div className="w-full p-8 lg:w-1/2">
                         <p className="text-xl text-gray-600 text-center">Welcome back!</p>
-                        <button className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100 w-full">
+                        <button disabled={processing} onClick={handleGoogleLogin} className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100 w-full disabled:cursor-not-allowed">
                             <div className="px-4 py-3">
                                 <svg className="h-6 w-6" viewBox="0 0 40 40">
                                     <path
@@ -68,9 +101,9 @@ const Login = () => {
                                 <span onClick={() => setShowPass(!showPass)} className=" absolute right-2 top-4 cursor-pointer">{showPass ? < LuEye /> : < LuEyeOff />}</span>
                             </div>
                             <div className="mt-8">
-                                <button className="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#DC5F00] text-[#DC5F00] w-full">
+                                <button disabled={processing} className="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#DC5F00] text-[#DC5F00] w-full disabled:cursor-not-allowed">
                                     <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#DC5F00] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                                    <span className="relative text-[#DC5F00] transition duration-300 group-hover:text-white ease">Login</span>
+                                    <span className="relative text-[#DC5F00] transition duration-300 group-hover:text-white ease">{processing ? <BiLoaderCircle className=" animate-spin mx-auto text-lg" /> : 'Login'}</span>
                                 </button>
                             </div>
                         </form>
