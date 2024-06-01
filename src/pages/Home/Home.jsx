@@ -5,6 +5,7 @@ import About from "../../components/Home/About/About";
 import FeaturedClasses from "../../components/Home/FeaturedClasses/FeaturedClasses";
 import Testimonials from "../../components/Home/Testimonials/Testimonials";
 import LatestComPost from "../../components/Home/LatestComPost/LatestComPost";
+import NewsLetter from "../../components/Home/NewsLetter/NewsLetter";
 
 const Home = () => {
     return (
@@ -18,6 +19,7 @@ const Home = () => {
             <FeaturedClasses></FeaturedClasses>
             <Testimonials></Testimonials>
             <LatestComPost></LatestComPost>
+            <NewsLetter></NewsLetter>
         </div>
     );
 };

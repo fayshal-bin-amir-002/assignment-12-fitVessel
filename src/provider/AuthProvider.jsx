@@ -43,12 +43,10 @@ const AuthProvider = ({ children }) => {
     }
 
     const saveUser = async(user) => {
-        const name = user?.displayName;
-        const photo = user?.photoURL;
         const email = user?.email;
         const role = "member";
 
-        const newUser = { name, photo, email, role };
+        const newUser = { email, role };
 
         await axiosPublic.post("/users", newUser);
     }
