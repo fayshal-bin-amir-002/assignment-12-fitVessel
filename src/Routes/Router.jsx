@@ -11,6 +11,8 @@ import DashBoard from "../layouts/DashBoard";
 import Profile from "../pages/Profile/Profile";
 import PrivetRoute from "./PrivetRoute";
 import TrainerDetails from "../pages/TrainerDetails/TrainerDetails";
+import TrainerBooking from "../pages/TrainerBooking/TrainerBooking";
+import Payment from "../pages/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +53,15 @@ const router = createBrowserRouter([
         path: "/trainer-details/:id",
         loader: ({params}) => fetch(`http://localhost:3000/trainer-details/${params.id}`),
         element: <TrainerDetails></TrainerDetails>
+      },
+      {
+        path: "/trainer-booking/:id",
+        loader: ({params}) => fetch(`http://localhost:3000/trainer-details/${params.id}`),
+        element: <PrivetRoute><TrainerBooking></TrainerBooking></PrivetRoute>
+      },
+      {
+        path: "/payment",
+        element: <PrivetRoute><Payment></Payment></PrivetRoute>
       }
     ]
   },

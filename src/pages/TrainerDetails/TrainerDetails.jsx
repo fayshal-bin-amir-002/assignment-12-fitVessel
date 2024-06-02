@@ -92,7 +92,10 @@ const TrainerDetails = () => {
                                     <td className="py-3 px-4">{trainer.availableTime}</td>
                                     <td className="py-3 px-4">{trainer.classDuration} hr</td>
                                     <td className="py-3 px-4">
-                                        <Link className="px-3 py-1 bg-green-200 rounded-full text-sm">Book <MdOutlineKeyboardDoubleArrowRight className="inline" /></Link>
+                                        <Link 
+                                        to={`/trainer-booking/${trainer._id}`} 
+                                        state={{day , 'availableTime' : trainer.availableTime, 'duration': trainer.classDuration}}
+                                        className="px-3 py-1 bg-green-200 rounded-full text-sm">Book <MdOutlineKeyboardDoubleArrowRight className="inline" /></Link>
                                     </td>
                                 </tr>)
                             }

@@ -24,7 +24,7 @@ const FeaturedClasses = () => {
                 <SectionHeader title="Featured Classes" description="Discover a variety of engaging fitness classes at FitVessel. From yoga to HIIT, our expert-led sessions cater to all levels and keep you motivated."></SectionHeader>
                 {
                     isLoading ? <LoadingSpiner></LoadingSpiner> :
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 gap-4 lg:gap-6 justify-items-center">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 lg:gap-6 justify-items-center">
                             {
                                 featuredClasses.map((item) => <FeaturedClassCard key={item._id} item={item}></FeaturedClassCard>)
                             }
