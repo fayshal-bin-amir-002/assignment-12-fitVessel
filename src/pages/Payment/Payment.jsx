@@ -21,8 +21,6 @@ const Payment = () => {
         onSuccess: (data) => {
             if (data.modifiedCount === 1) {
                 toast.success("Payment successful.");
-            } else if (data.modifiedCount !== 1) {
-                toast.error("Class already booked!");
             } else {
                 toast.error("Something went wrong!");
             }
