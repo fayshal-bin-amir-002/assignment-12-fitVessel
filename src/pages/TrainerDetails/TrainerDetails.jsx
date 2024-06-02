@@ -33,7 +33,7 @@ const TrainerDetails = () => {
                                     </div>
                                     <p className="mt-3 opacity-80">Biography : {trainer.biography}</p>
                                     <div className="w-full flex gap-4 md:gap-8 justify-start items-center pt-8">
-                                        <a href="#">
+                                        <Link>
                                             <div aria-label="Github">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                                     fill="none" stroke="#718096" strokeWidth="1.5" strokeLinecap="round"
@@ -43,8 +43,8 @@ const TrainerDetails = () => {
                                                     </path>
                                                 </svg>
                                             </div>
-                                        </a>
-                                        <a href="#">
+                                        </Link>
+                                        <Link>
                                             <div aria-label="Twitter">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                                     fill="none" stroke="#718096" strokeWidth="1.5" strokeLinecap="round"
@@ -54,8 +54,8 @@ const TrainerDetails = () => {
                                                     </path>
                                                 </svg>
                                             </div>
-                                        </a>
-                                        <a href="#">
+                                        </Link>
+                                        <Link>
                                             <div aria-label="Instagram">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                                     fill="none" stroke="#718096" strokeWidth="1.5" strokeLinecap="round"
@@ -65,7 +65,7 @@ const TrainerDetails = () => {
                                                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                                                 </svg>
                                             </div>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                             </main>
@@ -92,10 +92,10 @@ const TrainerDetails = () => {
                                     <td className="py-3 px-4">{trainer.availableTime}</td>
                                     <td className="py-3 px-4">{trainer.classDuration} hr</td>
                                     <td className="py-3 px-4">
-                                        <Link 
-                                        to={`/trainer-booking/${trainer._id}`} 
-                                        state={{day , 'availableTime' : trainer.availableTime, 'duration': trainer.classDuration}}
-                                        className="px-3 py-1 bg-green-200 rounded-full text-sm">Book <MdOutlineKeyboardDoubleArrowRight className="inline" /></Link>
+                                        <Link
+                                            to={`/trainer-booking/${trainer._id}`}
+                                            state={{ day, 'availableTime': trainer.availableTime, 'duration': trainer.classDuration }}
+                                            className="px-3 py-1 bg-green-200 rounded-full text-sm">Book <MdOutlineKeyboardDoubleArrowRight className="inline" /></Link>
                                     </td>
                                 </tr>)
                             }
@@ -137,8 +137,8 @@ const TrainerDetails = () => {
                             </p>
 
                             <div className="flex items-center justify-center">
-                                <div style={{transform: "none"}}>
-                                    <Link to="/">
+                                <div style={{ transform: "none" }}>
+                                    <Link to="/trainer-request">
                                         <button
                                             className="relative inline-block p-px font-semibold leading-6 text-white no-underline bg-gray-800 shadow-2xl cursor-pointer group rounded-xl shadow-zinc-900"><span
                                                 className="absolute inset-0 overflow-hidden rounded-xl"><span

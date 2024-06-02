@@ -14,6 +14,7 @@ import TrainerDetails from "../pages/TrainerDetails/TrainerDetails";
 import TrainerBooking from "../pages/TrainerBooking/TrainerBooking";
 import Payment from "../pages/Payment/Payment";
 import Community from "../pages/Community/Community";
+import TrainerRequest from "../pages/TrainerRequest/TrainerRequest";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
       {
         path: "/community",
         element: <Community></Community>
+      },
+      {
+        path: "/trainer-request",
+        element: <PrivetRoute><TrainerRequest></TrainerRequest></PrivetRoute>
       }
     ]
   },

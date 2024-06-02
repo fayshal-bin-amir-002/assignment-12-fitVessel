@@ -31,7 +31,7 @@ const Community = () => {
 
     const { mutateAsync } = useMutation({
         mutationFn: async (voting) => {
-            const { data } = await axiosSecure.patch(`/voteBlog?email=${user?.email}`, voting);
+            const { data } = await axiosSecure.patch(`/voteBlog`, voting);
             return data;
         },
         onSuccess: () => {
@@ -42,6 +42,9 @@ const Community = () => {
     const pages = [...Array(Math.ceil(parseInt(count) / 6)).keys()];
 
     const handleVote = async (vote, id) => {
+
+        if(!user) return toast.error("Please login first!");
+        
         const voting = { vote, id };
         try {
             await mutateAsync(voting)
