@@ -1,52 +1,32 @@
-import { useState } from 'react';
-import Select from 'react-select'
-import { days } from '../../utils/days';
-import { Checkbox } from '@material-tailwind/react';
+import { useQuery } from "@tanstack/react-query";
+import Container from "../../components/shared/Container/Container";
+import LoadingSpiner from "../../components/shared/LoadingSpiner/LoadingSpiner";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import TrainerProfileCard from "./TrainerProfileCard";
 
 const AllTrainer = () => {
 
-    const [selectedOption, setSelectedOption] = useState(null);
+    const axiosPublic = useAxiosPublic();
 
+    const { data: trainers = [], isLoading } = useQuery({
+        queryKey: ['trainers'],
+        queryFn: async () => {
+            const { data } = await axiosPublic.get("/trainers");
+            return data;
+        }
+    })
 
-    const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' }
-    ]
+    if (isLoading) return <LoadingSpiner isBig={true}></LoadingSpiner>
 
-    const [exp, setExp] = useState([]);
-
-    const handleCheck = (checked, value) => {
-        const exist = exp.includes(value);
-        if(!exist && checked) exp.push(value)
-        if(exist && !checked) {
-            const idx = exp.indexOf(value);
-            exp.splice(idx, 1)
-        }    
-        console.log(exp);
-    }
-
-    // console.log(selectedOption);
-    console.log(exp);
     return (
-        <div className='min-h-[60vh]'>
-            <p>all trainer</p>
-            <div>
-                <Select
-                    defaultValue={selectedOption}
-                    onChange={setSelectedOption}
-                    options={days}
-                    isMulti={true}
-                    className='w-[200px]'
-                />
-
-            </div>
-            <div>
-                <Checkbox onChange={(e) => handleCheck(e.target.checked, e.target.value)} value={"A"} label="A" />
-                <Checkbox onChange={(e) => handleCheck(e.target.checked, e.target.value)} label="B" value={"B"} />
-                <Checkbox onChange={(e) => handleCheck(e.target.checked, e.target.value)} label="C" value={"C"} />
-                <Checkbox onChange={(e) => handleCheck(e.target.checked, e.target.value)} label="D" value={"D"} />
-            </div>
+        <div className='min-h-[60vh] py-14 md:py-20 lg:py-28'>
+            <Container>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+                    {
+                        trainers.map((trainer) => <TrainerProfileCard key={trainer._id} trainer={trainer}></TrainerProfileCard>)
+                    }
+                </div>
+            </Container>
         </div>
     );
 };

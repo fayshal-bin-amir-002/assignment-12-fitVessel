@@ -35,7 +35,7 @@
                 "label": "Sunday"
             }
         ],
-        "availableTime": "10 AM - 6 PM",
+        "availableTime": "10AM - 6PM",
         "classDuration": 1,
         "biography": "Alex Johnson is a dedicated and passionate fitness trainer with over 6 years of experience in the fitness industry. He specializes in a variety of training techniques, from high-intensity interval training to yoga and strength conditioning. Alex is committed to helping his clients achieve their fitness goals through personalized training programs and motivational coaching.",
         "experience": 6,
@@ -77,7 +77,7 @@
                 "label": "Sunday"
             }
         ],
-        "availableTime": "10 AM - 6 PM",
+        "availableTime": "10AM - 6PM",
         "classDuration": 1,
         "biography": "Alex Johnson is a dedicated and passionate fitness trainer with over 6 years of experience in the fitness industry. He specializes in a variety of training techniques, from high-intensity interval training to yoga and strength conditioning. Alex is committed to helping his clients achieve their fitness goals through personalized training programs and motivational coaching.",
         "experience": 6,
@@ -117,7 +117,7 @@
                 "label": "Saturday"
             }
         ],
-        "availableTime": "8 AM - 4 PM",
+        "availableTime": "8AM - 4PM",
         "classDuration": 1,
         "biography": "Sarah Miller brings over 7 years of expertise in fitness training, specializing in strength and conditioning as well as Pilates. With a background in functional training and aqua aerobics, Sarah offers a comprehensive approach to fitness. Her personalized programs are designed to help clients achieve their health and fitness goals through effective and enjoyable workouts.",
         "experience": 7,
@@ -162,7 +162,7 @@
                 "label": "Sunday"
             }
         ],
-        "availableTime": "9 AM - 5 PM",
+        "availableTime": "9AM - 5PM",
         "classDuration": 1,
         "biography": "Michael Lee has a passion for yoga and holistic fitness. With 5 years of experience, he specializes in yoga, Pilates, and barre fitness, focusing on improving flexibility, strength, and mindfulness. Michael is dedicated to creating a balanced and fulfilling fitness journey for each client, offering personalized training that promotes overall well-being.",
         "experience": 5,

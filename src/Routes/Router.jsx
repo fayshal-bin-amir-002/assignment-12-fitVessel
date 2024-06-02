@@ -10,6 +10,7 @@ import AllClasses from "../pages/AllClasses/AllClasses";
 import DashBoard from "../layouts/DashBoard";
 import Profile from "../pages/Profile/Profile";
 import PrivetRoute from "./PrivetRoute";
+import TrainerDetails from "../pages/TrainerDetails/TrainerDetails";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
         path: "/profile",
         element: <PrivetRoute><Profile></Profile></PrivetRoute>
       },
+      {
+        path: "/trainer-details/:id",
+        loader: ({params}) => fetch(`http://localhost:3000/trainer-details/${params.id}`),
+        element: <TrainerDetails></TrainerDetails>
+      }
     ]
   },
   {
