@@ -13,6 +13,7 @@ import PrivetRoute from "./PrivetRoute";
 import TrainerDetails from "../pages/TrainerDetails/TrainerDetails";
 import TrainerBooking from "../pages/TrainerBooking/TrainerBooking";
 import Payment from "../pages/Payment/Payment";
+import Community from "../pages/Community/Community";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: "/payment",
         element: <PrivetRoute><Payment></Payment></PrivetRoute>
+      },
+      {
+        path: "/community",
+        element: <Community></Community>
       }
     ]
   },
