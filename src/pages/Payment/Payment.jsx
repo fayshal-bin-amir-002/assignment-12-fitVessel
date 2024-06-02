@@ -4,10 +4,13 @@ import { Button } from "@material-tailwind/react";
 import { useMutation } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import useAuth from "../../hooks/useAuth";
 
 const Payment = () => {
 
     const axiosSecure = useAxiosSecure();
+
+    const { user } = useAuth();
 
     const { state } = useLocation();
 
@@ -15,11 +18,11 @@ const Payment = () => {
 
     const { mutateAsync } = useMutation({
         mutationFn: async (paymentData) => {
-            const { data } = await axiosSecure.post("/payment", paymentData);
+            const { data } = await axiosSecure.post(`/payment?email=${user?.email}`, paymentData);
             return data;
         },
         onSuccess: (data) => {
-            if (data.modifiedCount === 1) {
+            if (data.insertedId) {
                 toast.success("Payment successful.");
             } else {
                 toast.error("Something went wrong!");
