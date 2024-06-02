@@ -1,0 +1,52 @@
+[
+    {
+        "name": "HIIT Blast",
+        "description": "A high-intensity interval training (HIIT) class designed to push your limits and maximize calorie burn. This fast-paced, full-body workout incorporates a variety of exercises to keep you engaged and challenged.",
+        "totalBooking": 25
+    },
+    {
+        "name": "Yoga Flow",
+        "description": "A calming and rejuvenating yoga class that focuses on breath and movement synchronization. Suitable for all levels, this class helps improve flexibility, strength, and mental clarity.",
+        "totalBooking": 30
+    },
+    {
+        "name": "Pilates Core",
+        "description": "Strengthen your core muscles with Pilates exercises that enhance stability, flexibility, and overall body awareness. This class is ideal for building a strong foundation and improving posture.",
+        "totalBooking": 22
+    },
+    {
+        "name": "Cardio Kickboxing",
+        "description": "An energetic and fun cardio workout that combines kickboxing techniques with high-intensity cardio. Burn calories, build strength, and improve coordination in this dynamic class.",
+        "totalBooking": 18
+    },
+    {
+        "name": "Zumba Dance",
+        "description": "Join the party with Zumba, a dance fitness class featuring Latin and international music. Get your heart pumping and enjoy a full-body workout that's both effective and enjoyable.",
+        "totalBooking": 40
+    },
+    {
+        "name": "Spin Cycle",
+        "description": "A high-energy indoor cycling class that simulates various outdoor terrains. Boost your cardiovascular endurance and lower body strength while riding to motivating music.",
+        "totalBooking": 28
+    },
+    {
+        "name": "Barre Fitness",
+        "description": "A low-impact workout that combines elements of ballet, Pilates, and yoga. Focus on small, controlled movements to build strength, flexibility, and endurance.",
+        "totalBooking": 15
+    },
+    {
+        "name": "Meditation and Mindfulness",
+        "description": "A class dedicated to enhancing mental well-being through guided meditation and mindfulness practices. Learn techniques to reduce stress, improve focus, and cultivate inner peace.",
+        "totalBooking": 12
+    },
+    {
+        "name": "CrossFit Fundamentals",
+        "description": "An introductory class to CrossFit, covering the fundamental movements and techniques. Build strength, agility, and cardiovascular fitness with varied and scalable workouts.",
+        "totalBooking": 20
+    },
+    {
+        "name": "Powerlifting Basics",
+        "description": "Learn the basics of powerlifting, focusing on the three main lifts: squat, bench press, and deadlift. This class is perfect for those looking to build strength and improve lifting technique.",
+        "totalBooking": 10
+    }
+]

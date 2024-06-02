@@ -99,6 +99,70 @@ const TrainerDetails = () => {
                         </tbody>
                     </table>
                 </div>
+                {/* call on action section */}
+                <section className="w-full flex bg-gray-50 mt-12 md:mt-16 lg:mt-24">
+                    <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+                        <div className="text-center space-y-5">
+                            <h2 className="text-base font-semibold text-pink-400 tracking-wide uppercase">Get started now</h2>
+                            <div className="inline-flex items-end justify-center w-full text-center mx-auto">
+                                <img src="https://randomuser.me/api/portraits/men/47.jpg"
+                                    className="absolute transform translate-x-24 ml-6 rounded-full object-cover w-12 h-12 md:w-16 md:h-16 border-4 border-white" />
+                                <img src="https://randomuser.me/api/portraits/men/49.jpg"
+                                    className="absolute transform -translate-x-24 -ml-6 rounded-full object-cover w-12 h-12 md:w-16 md:h-16 border-4 border-white" />
+                                <img src="https://bryanuniversity.edu/wp-content/uploads/personal-train-undergrad-cert@2x-scaled.jpg"
+                                    className="absolute transform -translate-x-16 rounded-full w-16 h-16 md:w-20 object-cover md:h-20 border-4 border-white" />
+                                <img src="https://freakinfitness.com/wp-content/uploads/2023/07/Different-Types-of-Personal-Fitness-Trainers-And-Their-Average-Costs_--1024x538.jpg"
+                                    className="absolute transform translate-x-16 rounded-full w-16 h-16 md:w-20 object-cover md:h-20 border-4 border-white" />
+                                <img src="https://hips.hearstapps.com/hmg-prod/images/mh-trainer-2-1533577086.png"
+                                    className="rounded-full w-20 h-20 md:w-24 md:h-24 border-4 border-white object-cover relative" />
+                            </div>
+                            <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">Discover
+                                your
+                                skills
+                                <span className="px-2 py-1 relative inline-block">
+                                    <svg className="stroke-current bottom-0 absolute text-rose-300 -translate-x-2" viewBox="0 0 410 18"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 6.4c16.8 16.8 380.8-11.2 397.6 5.602" strokeWidth="12" fill="none"
+                                            fillRule="evenodd" strokeLinecap="round"></path>
+                                    </svg>
+                                    <span className="relative">with us</span>
+                                </span>
+                            </p>
+
+                            <p className="max-w-3xl mt-5 mx-auto text-xl text-gray-500">
+                                Join with our experienced and dedicated FitVessel Team
+                            </p>
+
+                            <div className="flex items-center justify-center">
+                                <div style={{transform: "none"}}>
+                                    <Link to="/">
+                                        <button
+                                            className="relative inline-block p-px font-semibold leading-6 text-white no-underline bg-gray-800 shadow-2xl cursor-pointer group rounded-xl shadow-zinc-900"><span
+                                                className="absolute inset-0 overflow-hidden rounded-xl"><span
+                                                    className="absolute inset-0 rounded-xl bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+
+                                                </span>
+                                            </span>
+                                            <div
+                                                className="relative z-10 flex items-center px-6 py-3 space-x-2 rounded-xl bg-gray-950/50 ring-1 ring-white/10 ">
+                                                <span>Be A Trainer</span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"
+                                                    data-slot="icon" className="w-6 h-6">
+                                                    <path fillRule="evenodd"
+                                                        d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                                                        clipRule="evenodd"></path>
+                                                </svg>
+                                            </div>
+                                            <span
+                                                className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-gray-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40"></span>
+                                        </button>
+                                    </Link>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
             </Container>
         </div>
     );
