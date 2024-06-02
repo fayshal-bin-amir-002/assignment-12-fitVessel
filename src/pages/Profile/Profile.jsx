@@ -3,6 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import useRole from "../../hooks/useRole";
 import { useState } from "react";
 import UpdateProfileModal from "../../components/Modals/UpdateProfileModal";
+import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
 
@@ -27,11 +28,14 @@ const Profile = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Profile | Fit Vessel</title>
+            </Helmet>
             <section className="w-full overflow-hidden dark:bg-gray-900 px-4">
                 <div className="flex flex-col">
 
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw5fHxjb3ZlcnxlbnwwfDB8fHwxNzEwNzQxNzY0fDA&ixlib=rb-4.0.3&q=80&w=1080" alt="User Cover"
-                        className="w-full xl:h-[20rem] lg:h-[18rem] md:h-[16rem] sm:h-[14rem] xs:h-[11rem]" />
+                    <img src="https://img.freepik.com/free-photo/young-healthy-man-athlete-doing-exercise-with-ropes-gym-single-male-model-practicing-hard-training-his-upper-body-concept-healthy-lifestyle-sport-fitness-bodybuilding-wellbeing_155003-27879.jpg?t=st=1717270074~exp=1717273674~hmac=9c6618d963787be879320a6ca9a435c3dfcd81881cfd9622d50b693886c800af&w=1380" alt="User Cover"
+                        className="w-full xl:h-[20rem] lg:h-[18rem] md:h-[16rem] sm:h-[14rem] xs:h-[11rem] object-cover" />
 
 
                     <div className="sm:w-[80%] xs:w-[90%] mx-auto flex">

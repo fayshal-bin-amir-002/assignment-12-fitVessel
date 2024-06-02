@@ -61,7 +61,7 @@ const Login = () => {
             <Helmet>
                 <title>Login | Fit Vessel</title>
             </Helmet>
-            <div className="py-16">
+            <div className="py-16 min-h-[60vh]">
                 <div className="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
                     <div className="hidden lg:block lg:w-1/2 bg-cover"
                         style={{ backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLl0mtGKFGETe3clvy_fY4DLGzhKLaTKu-bA&s')" }}>

@@ -1,0 +1,171 @@
+[
+    {
+        "name": "Alex Johnson",
+        "email": "trainer1@gmail.com",
+        "age": 26,
+        "image": "https://bryanuniversity.edu/wp-content/uploads/personal-train-undergrad-cert@2x-scaled.jpg",
+        "skills": [
+            "HIIT Blast",
+            "Yoga Flow",
+            "Cardio Kickboxing",
+            "Zumba Dance",
+            "Spin Cycle",
+            "Meditation and Mindfulness",
+            "CrossFit Fundamentals"
+        ],
+        "availableDays": [
+            {
+                "value": "Monday",
+                "label": "Monday"
+            },
+            {
+                "value": "Tuesday",
+                "label": "Tuesday"
+            },
+            {
+                "value": "Wednesday",
+                "label": "Wednesday"
+            },
+            {
+                "value": "Thursday",
+                "label": "Thursday"
+            },
+            {
+                "value": "Sunday",
+                "label": "Sunday"
+            }
+        ],
+        "availableTime": "10 AM - 6 PM",
+        "classDuration": 1,
+        "biography": "Alex Johnson is a dedicated and passionate fitness trainer with over 6 years of experience in the fitness industry. He specializes in a variety of training techniques, from high-intensity interval training to yoga and strength conditioning. Alex is committed to helping his clients achieve their fitness goals through personalized training programs and motivational coaching.",
+        "experience": 6,
+        "status": "verified"
+    },
+    {
+        "name": "Herry Jack",
+        "email": "trainer2@gmail.com",
+        "age": 26,
+        "image": "https://hips.hearstapps.com/hmg-prod/images/mh-trainer-2-1533577086.png",
+        "skills": [
+            "HIIT Blast",
+            "Yoga Flow",
+            "Cardio Kickboxing",
+            "Zumba Dance",
+            "Spin Cycle",
+            "Meditation and Mindfulness",
+            "CrossFit Fundamentals"
+        ],
+        "availableDays": [
+            {
+                "value": "Monday",
+                "label": "Monday"
+            },
+            {
+                "value": "Tuesday",
+                "label": "Tuesday"
+            },
+            {
+                "value": "Wednesday",
+                "label": "Wednesday"
+            },
+            {
+                "value": "Thursday",
+                "label": "Thursday"
+            },
+            {
+                "value": "Sunday",
+                "label": "Sunday"
+            }
+        ],
+        "availableTime": "10 AM - 6 PM",
+        "classDuration": 1,
+        "biography": "Alex Johnson is a dedicated and passionate fitness trainer with over 6 years of experience in the fitness industry. He specializes in a variety of training techniques, from high-intensity interval training to yoga and strength conditioning. Alex is committed to helping his clients achieve their fitness goals through personalized training programs and motivational coaching.",
+        "experience": 6,
+        "status": "verified"
+    },
+    {
+        "name": "Sarah Miller",
+        "email": "trainer3@gmail.com",
+        "age": 28,
+        "image": "https://freakinfitness.com/wp-content/uploads/2023/07/Different-Types-of-Personal-Fitness-Trainers-And-Their-Average-Costs_--1024x538.jpg",
+        "skills": [
+            "HIIT Blast",
+            "Yoga Flow",
+            "Pilates Core",
+            "Cardio Kickboxing",
+            "Zumba Dance",
+            "Barre Fitness",
+            "Meditation and Mindfulness",
+            "CrossFit Fundamentals",
+            "Powerlifting Basics"
+        ],
+        "availableDays": [
+            {
+                "value": "Tuesday",
+                "label": "Tuesday"
+            },
+            {
+                "value": "Wednesday",
+                "label": "Wednesday"
+            },
+            {
+                "value": "Friday",
+                "label": "Friday"
+            },
+            {
+                "value": "Saturday",
+                "label": "Saturday"
+            }
+        ],
+        "availableTime": "8 AM - 4 PM",
+        "classDuration": 1,
+        "biography": "Sarah Miller brings over 7 years of expertise in fitness training, specializing in strength and conditioning as well as Pilates. With a background in functional training and aqua aerobics, Sarah offers a comprehensive approach to fitness. Her personalized programs are designed to help clients achieve their health and fitness goals through effective and enjoyable workouts.",
+        "experience": 7,
+        "status": "verified"
+    },
+    {
+        "name": "Michael Lee",
+        "email": "trainer4@gmail.com",
+        "age": 27,
+        "image": "https://hips.hearstapps.com/hmg-prod/images/portrait-of-a-trainer-in-gym-royalty-free-image-1584723855.jpg",
+        "skills": [
+            "HIIT Blast",
+            "Yoga Flow",
+            "Pilates Core",
+            "Cardio Kickboxing",
+            "Zumba Dance",
+            "Spin Cycle",
+            "Barre Fitness",
+            "Meditation and Mindfulness",
+            "CrossFit Fundamentals",
+            "Powerlifting Basics"
+        ],
+        "availableDays": [
+            {
+                "value": "Monday",
+                "label": "Monday"
+            },
+            {
+                "value": "Wednesday",
+                "label": "Wednesday"
+            },
+            {
+                "value": "Thursday",
+                "label": "Thursday"
+            },
+            {
+                "value": "Saturday",
+                "label": "Saturday"
+            },
+            {
+                "value": "Sunday",
+                "label": "Sunday"
+            }
+        ],
+        "availableTime": "9 AM - 5 PM",
+        "classDuration": 1,
+        "biography": "Michael Lee has a passion for yoga and holistic fitness. With 5 years of experience, he specializes in yoga, Pilates, and barre fitness, focusing on improving flexibility, strength, and mindfulness. Michael is dedicated to creating a balanced and fulfilling fitness journey for each client, offering personalized training that promotes overall well-being.",
+        "experience": 5,
+        "status": "verified"
+    }
+]

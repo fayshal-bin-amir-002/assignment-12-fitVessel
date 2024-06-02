@@ -9,6 +9,7 @@ import AllTrainer from "../pages/AllTrainer/AllTrainer";
 import AllClasses from "../pages/AllClasses/AllClasses";
 import DashBoard from "../layouts/DashBoard";
 import Profile from "../pages/Profile/Profile";
+import PrivetRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <Profile></Profile>
+        element: <PrivetRoute><Profile></Profile></PrivetRoute>
       },
     ]
   },

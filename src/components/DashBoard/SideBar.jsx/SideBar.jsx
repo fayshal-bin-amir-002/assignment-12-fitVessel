@@ -14,7 +14,7 @@ const SideBar = () => {
 
     return (
         <div>
-            <div className='bg-gray-100 text-gray-800 flex justify-between lg:hidden'>
+            <div className='text-gray-800 flex justify-between lg:hidden'>
                 <div>
                     <div className='block cursor-pointer p-4 font-bold'>
                         <Link to="/" className="text-2xl md:text-3xl lg:text-4xl font-ubuntu font-medium">Fit<span className="text-[#DC5F00]">Vessel</span></Link>
@@ -23,7 +23,7 @@ const SideBar = () => {
 
                 <button
                     onClick={toggleBar}
-                    className='mobile-menu-button p-4 focus:outline-none focus:bg-gray-200'
+                    className='mobile-menu-button p-4 focus:outline-none'
                 >
                     <FaBarsStaggered className='h-5 w-5' />
                 </button>

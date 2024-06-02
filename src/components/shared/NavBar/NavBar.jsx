@@ -86,8 +86,6 @@ const ProfileDropDown = (props) => {
 
 const NavBar = () => {
 
-    const { user } = useAuth();
-
     const [menuState, setMenuState] = useState(false)
 
     const navigation = [

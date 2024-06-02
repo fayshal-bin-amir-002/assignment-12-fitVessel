@@ -68,7 +68,7 @@ const Register = () => {
     return (
         <Container>
             <Helmet>
-                <title>Login | Fit Vessel</title>
+                <title>Register | Fit Vessel</title>
             </Helmet>
             <div className="py-16">
                 <div className="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
