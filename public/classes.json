@@ -2,51 +2,61 @@
     {
         "name": "HIIT Blast",
         "description": "A high-intensity interval training (HIIT) class designed to push your limits and maximize calorie burn. This fast-paced, full-body workout incorporates a variety of exercises to keep you engaged and challenged.",
-        "totalBooking": 25
+        "totalBooking": 25,
+        "image": "https://img.freepik.com/free-photo/close-up-man-doing-crossfit-workout_23-2149080420.jpg?t=st=1717327236~exp=1717330836~hmac=63d2334161e979c50c43cee0020b46b42bc62854f59b71d19534d93fb15fe115&w=1380"
     },
     {
         "name": "Yoga Flow",
         "description": "A calming and rejuvenating yoga class that focuses on breath and movement synchronization. Suitable for all levels, this class helps improve flexibility, strength, and mental clarity.",
-        "totalBooking": 30
+        "totalBooking": 30,
+        "image": "https://img.freepik.com/free-photo/one-standing-leg-as-yoga-pose_23-2148343478.jpg?t=st=1717327333~exp=1717330933~hmac=66bc5f6f85b8b24bba20917e9d7db182dd42905a22048b11e15787c6dcd155c9&w=1380"
     },
     {
         "name": "Pilates Core",
         "description": "Strengthen your core muscles with Pilates exercises that enhance stability, flexibility, and overall body awareness. This class is ideal for building a strong foundation and improving posture.",
-        "totalBooking": 22
+        "totalBooking": 22,
+        "image": "https://img.freepik.com/free-photo/full-shot-man-stretching-yoga-mat_23-2148717196.jpg?t=st=1717327398~exp=1717330998~hmac=7bd5e084db1cf019c1ae2be5726843e0d4718f029c1dec44968cb204621d2709&w=1380"
     },
     {
         "name": "Cardio Kickboxing",
         "description": "An energetic and fun cardio workout that combines kickboxing techniques with high-intensity cardio. Burn calories, build strength, and improve coordination in this dynamic class.",
-        "totalBooking": 18
+        "totalBooking": 18,
+        "image": "https://img.freepik.com/free-photo/strong-man-with-red-gloves-training_23-2148416708.jpg?t=st=1717327433~exp=1717331033~hmac=33085a0628d5be29ea16f3ad3f30e9ac4cab9f1fe14333bc6520b9d6e31bdcce&w=1380"
     },
     {
         "name": "Zumba Dance",
         "description": "Join the party with Zumba, a dance fitness class featuring Latin and international music. Get your heart pumping and enjoy a full-body workout that's both effective and enjoyable.",
-        "totalBooking": 40
+        "totalBooking": 40,
+        "image": "https://img.freepik.com/free-photo/smiley-people-having-fun-zumba-class_23-2149074876.jpg?t=st=1717327467~exp=1717331067~hmac=0bf2711ae4922c15b202b847ca70bbcbe5aff37304a175d8e88787635c3d41c9&w=1380"
     },
     {
         "name": "Spin Cycle",
         "description": "A high-energy indoor cycling class that simulates various outdoor terrains. Boost your cardiovascular endurance and lower body strength while riding to motivating music.",
-        "totalBooking": 28
+        "totalBooking": 28,
+        "image": "https://img.freepik.com/free-photo/people-doing-indoor-cycling_23-2149270266.jpg?t=st=1717327546~exp=1717331146~hmac=c9146c430bc9a1c945790f2f5d8348ae1a4b6a4d610de1270e956468248930d7&w=1380"
     },
     {
         "name": "Barre Fitness",
         "description": "A low-impact workout that combines elements of ballet, Pilates, and yoga. Focus on small, controlled movements to build strength, flexibility, and endurance.",
-        "totalBooking": 15
+        "totalBooking": 15,
+        "image": "https://img.freepik.com/free-photo/man-training-gym_23-2148024306.jpg?t=st=1717327581~exp=1717331181~hmac=377f9d008496fcc62ef459de91ecea5aae1f29942f171127699d3549999e56d7&w=1380"
     },
     {
         "name": "Meditation and Mindfulness",
         "description": "A class dedicated to enhancing mental well-being through guided meditation and mindfulness practices. Learn techniques to reduce stress, improve focus, and cultivate inner peace.",
-        "totalBooking": 12
+        "totalBooking": 12,
+        "image": "https://img.freepik.com/free-photo/healthy-lifestyle-sustained-home_23-2149362474.jpg?t=st=1717327630~exp=1717331230~hmac=622546a9d71368c8478bf2e0f13a772c489be66b5c44e8bfc1f737dc8fd5756c&w=1380"
     },
     {
         "name": "CrossFit Fundamentals",
         "description": "An introductory class to CrossFit, covering the fundamental movements and techniques. Build strength, agility, and cardiovascular fitness with varied and scalable workouts.",
-        "totalBooking": 20
+        "totalBooking": 20,
+        "image": "https://img.freepik.com/free-photo/bodybuilding-concept-with-man-woman_23-2147671848.jpg?t=st=1717327656~exp=1717331256~hmac=cc1c8106b9d18d130907b7e37a8785f05a8d4a20a744ea9461dd7b1283d1e0a2&w=1380"
     },
     {
         "name": "Powerlifting Basics",
         "description": "Learn the basics of powerlifting, focusing on the three main lifts: squat, bench press, and deadlift. This class is perfect for those looking to build strength and improve lifting technique.",
-        "totalBooking": 10
+        "totalBooking": 10,
+        "image": "https://img.freepik.com/free-photo/young-man-training-gym-bodybuilding_23-2149552275.jpg?t=st=1717327706~exp=1717331306~hmac=831c9250bb8458b71a9ee5bfebef89db63f3446ae75bf7742c2b5774cbe5a784&w=1380"
     }
 ]
