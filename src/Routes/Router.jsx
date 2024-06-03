@@ -20,6 +20,8 @@ import AdminRoute from "./AdminRoute";
 import AllTrainersDb from "../components/DashBoard/AllTrainersDb/AllTrainersDb";
 import AppliedTrainers from "../components/DashBoard/AppliedTrainers/AppliedTrainers";
 import AddNewClass from "../components/DashBoard/AddNewClass/AddNewClass";
+import AdminTrainerRoute from "./AdminTrainerRoute";
+import AddNewForum from "../components/DashBoard/AddNewForum/AddNewForum";
 
 const router = createBrowserRouter([
   {
@@ -99,6 +101,10 @@ const router = createBrowserRouter([
       {
         path: "addNew-class",
         element: <AdminRoute><AddNewClass></AddNewClass></AdminRoute>
+      },
+      {
+        path: "addNew-forum",
+        element: <AdminTrainerRoute><AddNewForum></AddNewForum></AdminTrainerRoute>
       }
     ]
   }

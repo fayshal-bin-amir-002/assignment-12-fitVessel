@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import { BiLoaderCircle } from "react-icons/bi";
+import { uploadImage } from "../../utils/imageUpload";
 
 
 const Register = () => {
@@ -28,8 +29,11 @@ const Register = () => {
 
     const onSubmit = async (data) => {
         setProcessing(true);
+        
+        const photo_url = await uploadImage(data.photoUrl[0]);
+        
         await userRegister(data.email, data.password)
-        await updateUserProfile(data.name, data.photoUrl)
+        await updateUserProfile(data.name, photo_url)
             .then(async () => {
                 await userLogOut()
                     .then(() => {
@@ -103,7 +107,7 @@ const Register = () => {
                                 <Input {...register("name")} type="text" name="name" variant="standard" label="Name" placeholder="Type your name..." required />
                             </div>
                             <div className="mt-4">
-                                <Input {...register("photoUrl")} type="text" name="photoUrl" variant="standard" label="Photo Url" placeholder="Enter your photo Url..." required />
+                                <Input {...register("photoUrl")} type="file" name="photoUrl" variant="standard" label="Photo Url" placeholder="Enter your photo Url..." required />
                             </div>
                             <div className="mt-4">
                                 <Input {...register("email")} type="email" name="email" variant="standard" label="Email" placeholder="Type your email..." required />

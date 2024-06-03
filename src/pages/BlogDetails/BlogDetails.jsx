@@ -19,18 +19,24 @@ const BlogDetails = () => {
                 <div className="max-w-3xl mx-auto">
                     <div
                         className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
-                        <div className="bg-white relative top-0 -mt-32 p-5 sm:p-10">
+                        <div className="bg-white relative top-0 -mt-32 sm:p-10">
                             <h1 className="text-gray-900 font-bold text-3xl mb-2">{blog.title}</h1>
-                            <div className="flex justify-between items-center mt-2">
-                                <p className="text-gray-900 text-sm font-medium">Written By :
-                                    <span> {blog.author}</span>
-                                </p>
+                            <div className="flex justify-between gap-3 items-center mt-6">
+                                <div className="flex flex-col md:flex-row md:items-center gap-2 lg:gap-3">
+                                    <img src={blog.author_img} alt="" className="size-10 rounded-full" />
+                                    <div>
+                                        <p className="text-gray-900 text-sm font-medium">Written By :
+                                            <span> {blog.author}</span>
+                                        </p>
+                                        <p className="text-gray-900 text-sm font-medium">
+                                            {blog.postDate}
+                                        </p>
+                                    </div>
+                                </div>
                                 <span className="bg-[#DC5F00] px-2 py-0.5 font-semibold text-sm rounded-sm text-white uppercase">{blog.role}</span>
                             </div>
 
-                            <p className="text-gray-900 text-sm font-medium pt-1">
-                                {blog.postDate}
-                            </p>
+
 
                             <div className="w-full h-[2px] bg-black my-4"></div>
 

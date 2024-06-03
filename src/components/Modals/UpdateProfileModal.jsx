@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { Fragment } from "react";
+import { uploadImage } from "../../utils/imageUpload";
 
 const UpdateProfileModal = ({ isOpen, close, user, refetch }) => {
 
@@ -13,10 +14,11 @@ const UpdateProfileModal = ({ isOpen, close, user, refetch }) => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
-        const photo = form.photo.value;
+        const photo = form.photo.files[0];
 
         try {
-            await updateUserProfile(name, photo)
+            const img_url = await uploadImage(photo);
+            await updateUserProfile(name, img_url)
             refetch();
             toast.success("Profile updated successfully");
         } catch (error) {
@@ -56,8 +58,8 @@ const UpdateProfileModal = ({ isOpen, close, user, refetch }) => {
                                         <input type="text" name="name" id="" className="border border-gray-500 rounded-lg w-full p-2" defaultValue={user?.displayName} />
                                     </div>
                                     <div>
-                                        <small>Photo Url</small>
-                                        <input type="text" name="photo" id="" className="border border-gray-500 rounded-lg w-full p-2" defaultValue={user?.photoURL} />
+                                        <small>Photo</small>
+                                        <input type="file" name="photo" id="" className="border border-gray-500 rounded-lg w-full p-2" />
                                     </div>
                                     <div className="mt-4 text-right">
                                         <Button type="submit"
