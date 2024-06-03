@@ -15,6 +15,8 @@ import TrainerBooking from "../pages/TrainerBooking/TrainerBooking";
 import Payment from "../pages/Payment/Payment";
 import Community from "../pages/Community/Community";
 import TrainerRequest from "../pages/TrainerRequest/TrainerRequest";
+import NewsLetter from "../components/DashBoard/NewsLetter/NewsLetter";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -77,7 +79,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <PrivetRoute><DashBoard></DashBoard></PrivetRoute>
+    element: <PrivetRoute><DashBoard></DashBoard></PrivetRoute>,
+    children: [
+      {
+        index: true,
+        element: <AdminRoute><NewsLetter></NewsLetter></AdminRoute>
+      }
+    ]
   }
 ]);
 

@@ -32,7 +32,7 @@ const TrainerRequest = () => {
 
     const { mutateAsync } = useMutation({
         mutationFn: async (newTrainer) => {
-            const { data } = await axiosSecure.post(`/trainer-requert?email=${user?.email}`, newTrainer);
+            const { data } = await axiosSecure.post(`/trainer-request?email=${user?.email}`, newTrainer);
             return data;
         },
         onSuccess: (data) => {

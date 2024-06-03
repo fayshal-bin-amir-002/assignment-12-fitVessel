@@ -23,11 +23,11 @@ const LatestComPost = () => {
         <div className="my-12 md:my-16 lg:my-20 xl:my-24">
             <Container>
                 <SectionHeader title="Latest Community Posts" description="Stay updated with the newest discussions and topics in our community. Join conversations, share insights, and connect with fellow fitness enthusiasts!"></SectionHeader>
-                <section className="flex flex-col justify-center max-w-8xl px-4 mx-auto sm:px-6">
+                <section className="flex flex-col justify-center max-w-8xl mx-auto ">
                     {isLoading ? <LoadingSpiner></LoadingSpiner> :
                         <div className="flex flex-wrap">
                             {
-                                blogs.map((blog) => <div key={blog._id} className="w-full max-w-full mb-8 sm:w-1/2 px-4 lg:w-1/3 2xl:w-1/4 flex flex-col">
+                                blogs.map((blog) => <div key={blog._id} className="w-full max-w-full mb-8 sm:w-1/2 lg:w-1/3 2xl:w-1/4 flex flex-col">
                                     <img src={blog.image} alt="Card img" className="object-cover object-center w-full h-48" />
                                     <div className="flex flex-grow">
                                         <div className="triangle"></div>

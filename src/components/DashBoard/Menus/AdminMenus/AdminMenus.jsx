@@ -11,7 +11,7 @@ import { VscDiffAdded } from "react-icons/vsc";
 const AdminMenus = () => {
 
     const links = [
-        { label: "Newsletter Subscribers", to: "newsletter-subscribers", icon: <FaRegNewspaper className="inline text-xl mr-1" /> },
+        { label: "Newsletter Subscribers", to: "/dashboard", icon: <FaRegNewspaper className="inline text-xl mr-1" /> },
         { label: "All Trainers", to: "all-trainers", icon: <GiRomanToga className="inline text-xl mr-1" /> },
         { label: "Applied Trainers", to: "applied-trainers", icon: <VscGitStashApply className="inline text-xl mr-1" /> },
         { label: "Balance", to: "balance", icon: <MdOutlineAccountBalanceWallet className="inline text-xl mr-1" /> },
@@ -22,8 +22,8 @@ const AdminMenus = () => {
     return (
         <ul className="p-4 space-y-3">
             {
-                links.map((link, i) => <li key={i} className="text-lg font-medium p-2.5 hover:bg-blue-gray-200 cursor-pointer">
-                    <NavLink to={link.to} className={({ isActive }) => isActive ? 'bg-blue-gray-400 block' : 'block'}>{link.icon} {link.label}</NavLink>
+                links.map((link, i) => <li key={i} className="text-lg font-medium hover:bg-blue-gray-200 cursor-pointer">
+                    <NavLink to={link.to} className={({ isActive }) => isActive ? 'bg-blue-gray-200 block px-4 py-2' : 'block px-4 py-2'}>{link.icon} {link.label}</NavLink>
                 </li>)
             }
         </ul>

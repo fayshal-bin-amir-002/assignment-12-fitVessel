@@ -25,7 +25,7 @@ const ProfileDropDown = (props) => {
         const handleDropDown = (e) => {
             if (!profileRef.current.contains(e.target)) setState(false)
         }
-        document.addEventListener('click', handleDropDown)
+        document.getElementById("btn").addEventListener('click', handleDropDown)
     }, [])
 
     const handleLogOut = async () => {
@@ -41,7 +41,7 @@ const ProfileDropDown = (props) => {
     return (
         <div className={`relative ${props.class}`}>
             <div className="flex items-center space-x-4">
-                <button ref={profileRef} className="w-10 h-10 outline-none rounded-full ring-offset-2 ring-gray-200 ring-2 lg:focus:ring-[#DC5F00] ms-3"
+                <button id="btn" ref={profileRef} className="w-10 h-10 outline-none rounded-full ring-offset-2 ring-gray-200 ring-2 lg:focus:ring-[#DC5F00] ms-3"
                     onClick={() => setState(!state)}
                 >
                     <img
