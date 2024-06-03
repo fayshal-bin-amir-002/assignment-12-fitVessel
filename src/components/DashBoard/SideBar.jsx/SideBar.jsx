@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import AdminMenus from "../Menus/AdminMenus/AdminMenus";
 import MenuItems from "../Common/MenuItems/MenuItems";
 import useRole from "../../../hooks/useRole";
-import LoadingSpiner from "../../shared/LoadingSpiner/LoadingSpiner";
+// import LoadingSpiner from "../../shared/LoadingSpiner/LoadingSpiner";
 
 const SideBar = () => {
 
-    const { role, isLoading } = useRole();
+    const { role } = useRole();
 
     const [showSide, setShowSide] = useState(false);
 
@@ -16,7 +16,7 @@ const SideBar = () => {
         setShowSide(!showSide);
     }
 
-    if (isLoading) return <LoadingSpiner isBig={true}></LoadingSpiner>
+    // if (isLoading) return <LoadingSpiner isBig={true}></LoadingSpiner>
 
     return (
         <div>
