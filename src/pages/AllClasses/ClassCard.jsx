@@ -13,6 +13,7 @@ const ClassCard = ({ item }) => {
                 <p className="my-4 text-sm opacity-80">{item.description}</p>
                 <div className="flex items-center flex-wrap justify-start gap-4 lg:gap-6">
                     {
+                        item.matchedTrainers.length === 0 ? <p className='text-red-400'>No trainer assigned for this class yet!</p> :
                         item.matchedTrainers.map((trainer, i) => <AvatarCard key={i} trainer={trainer}></AvatarCard>)
                     }
                 </div>

@@ -19,6 +19,7 @@ import NewsLetter from "../components/DashBoard/NewsLetter/NewsLetter";
 import AdminRoute from "./AdminRoute";
 import AllTrainersDb from "../components/DashBoard/AllTrainersDb/AllTrainersDb";
 import AppliedTrainers from "../components/DashBoard/AppliedTrainers/AppliedTrainers";
+import AddNewClass from "../components/DashBoard/AddNewClass/AddNewClass";
 
 const router = createBrowserRouter([
   {
@@ -94,6 +95,10 @@ const router = createBrowserRouter([
       {
         path: "applied-trainers",
         element: <AdminRoute><AppliedTrainers></AppliedTrainers></AdminRoute>
+      },
+      {
+        path: "addNew-class",
+        element: <AdminRoute><AddNewClass></AddNewClass></AdminRoute>
       }
     ]
   }
