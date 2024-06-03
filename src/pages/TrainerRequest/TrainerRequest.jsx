@@ -85,7 +85,7 @@ const TrainerRequest = () => {
             </Helmet>
             <Container>
                 <div className="flex justify-center items-center">
-                    <div className=" bg-blue-gray-50 shadow-md w-full lg:w-3/4 xl:w-2/3 p-6 md:p-8 lg:p-10 rounded">
+                    <div className=" bg-blue-gray-50 shadow-md w-full lg:w-10/12 xl:w-3/4 p-6 md:p-8 lg:p-10 rounded">
                         <form onSubmit={handleSubmit} className="w-full space-y-4 lg:space-y-6">
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
                                 <Input name="name" type="text" label="Name" className="bg-white" defaultValue={user?.displayName} required />

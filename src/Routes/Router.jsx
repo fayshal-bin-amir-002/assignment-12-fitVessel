@@ -18,6 +18,7 @@ import TrainerRequest from "../pages/TrainerRequest/TrainerRequest";
 import NewsLetter from "../components/DashBoard/NewsLetter/NewsLetter";
 import AdminRoute from "./AdminRoute";
 import AllTrainersDb from "../components/DashBoard/AllTrainersDb/AllTrainersDb";
+import AppliedTrainers from "../components/DashBoard/AppliedTrainers/AppliedTrainers";
 
 const router = createBrowserRouter([
   {
@@ -89,6 +90,10 @@ const router = createBrowserRouter([
       {
         path: "all-trainers-db",
         element: <AdminRoute><AllTrainersDb></AllTrainersDb></AdminRoute>
+      },
+      {
+        path: "applied-trainers",
+        element: <AdminRoute><AppliedTrainers></AppliedTrainers></AdminRoute>
       }
     ]
   }
