@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import useAuth from "../../../hooks/useAuth";
+import { uploadImage } from "../../../utils/imageUpload";
 
 const AddNewClass = () => {
 
@@ -33,29 +34,31 @@ const AddNewClass = () => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
-        const photo = form.photo.value;
+        const photo = form.photo.files[0];
         const details = form.details.value;
 
-        const newClass = {
-            name: name,
-            description: details,
-            image: photo,
-            totalBooking: 0
-        }
-
         try {
+            const img_url = await uploadImage(photo);
+            const newClass = {
+                name: name,
+                description: details,
+                image: img_url,
+                totalBooking: 0
+            }
             await mutateAsync(newClass);
             form.reset();
-        } catch(error) {
+
+        } catch (error) {
             toast.error(error.message);
         }
+
     }
 
     return (
         <div className="flex justify-center items-center min-h-screen w-full ">
             <form onSubmit={handleAddClass} className=" bg-gray-100 p-6 md:p-8 lg:p-10 w-full lg:w-10/12 xl:w-1/2 flex flex-col gap-4 lg:gap-6 rounded-lg shadow-md">
                 <Input name="name" type="text" label="Class Name" className="bg-white" required />
-                <Input name="photo" type="text" label="Class Image URL" className="bg-white" required />
+                <Input name="photo" type="file" accept="image" label="Class Image" className="bg-white" required />
 
                 <Textarea name='details' label="Class Description" required />
 
