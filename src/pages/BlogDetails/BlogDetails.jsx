@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import Container from "../../components/shared/Container/Container";
+import { Helmet } from "react-helmet-async";
 
 const BlogDetails = () => {
 
@@ -7,6 +8,9 @@ const BlogDetails = () => {
 
     return (
         <Container>
+            <Helmet>
+                <title>Blog | Fit Vessel</title>
+            </Helmet>
             <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16 relative">
                 <div className="bg-cover bg-center text-center overflow-hidden"
                     style={{ minHeight: '500px', backgroundImage: `url(${blog.image})` }}

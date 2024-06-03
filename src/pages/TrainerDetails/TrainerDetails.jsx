@@ -2,6 +2,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import Container from "../../components/shared/Container/Container";
 import SectionHeader from "../../components/shared/SectionHeader/SectionHeader";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
+import { Helmet } from "react-helmet-async";
 
 const TrainerDetails = () => {
 
@@ -9,6 +10,9 @@ const TrainerDetails = () => {
 
     return (
         <div className="min-h-[60vh] mb-12 md:mb-16 lg:mb-24">
+            <Helmet>
+                <title>Trainer Details | Fit Vessel</title>
+            </Helmet>
             <Container>
                 <div id="about" className="relative bg-white my-16">
                     <div className="max-w-9xl mx-auto">

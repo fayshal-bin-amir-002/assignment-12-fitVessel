@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button, Option, Select } from "@material-tailwind/react";
 import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const TrainerBooking = () => {
 
@@ -56,6 +57,9 @@ const TrainerBooking = () => {
 
     return (
         <div className="py-8 md:py-12 lg:py-16">
+            <Helmet>
+                <title>Trainer Booking | Fit Vessel</title>
+            </Helmet>
             <Container>
                 <div>
                     <section>

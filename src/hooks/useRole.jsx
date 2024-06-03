@@ -8,7 +8,7 @@ const useRole = () => {
 
     const axiosPublic = useAxiosPublic();
 
-    const { data, isLoading, refetch } = useQuery({
+    const { data : role = '', isLoading, refetch } = useQuery({
         queryKey: ['role', user?.email],
         enabled: !loading && !!user,
         queryFn: async () => {
@@ -17,7 +17,7 @@ const useRole = () => {
         }
     })
 
-    return { data, isLoading, refetch };
+    return { role, isLoading, refetch };
 };
 
 export default useRole;

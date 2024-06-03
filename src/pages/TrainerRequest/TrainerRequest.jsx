@@ -8,6 +8,7 @@ import { useState } from "react";
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 const TrainerRequest = () => {
 
@@ -79,6 +80,9 @@ const TrainerRequest = () => {
 
     return (
         <div className="py-8 md:py-12 lg:py-16 min-h-[60vh]">
+            <Helmet>
+                <title>Trainer Request | Fit Vessel</title>
+            </Helmet>
             <Container>
                 <div className="flex justify-center items-center">
                     <div className=" bg-blue-gray-50 shadow-md w-full lg:w-3/4 xl:w-2/3 p-6 md:p-8 lg:p-10 rounded">

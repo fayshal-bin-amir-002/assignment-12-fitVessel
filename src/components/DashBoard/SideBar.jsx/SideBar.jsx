@@ -3,14 +3,20 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import AdminMenus from "../Menus/AdminMenus/AdminMenus";
 import MenuItems from "../Common/MenuItems/MenuItems";
+import useRole from "../../../hooks/useRole";
+import LoadingSpiner from "../../shared/LoadingSpiner/LoadingSpiner";
 
 const SideBar = () => {
+
+    const { role, isLoading } = useRole();
 
     const [showSide, setShowSide] = useState(false);
 
     const toggleBar = () => {
         setShowSide(!showSide);
     }
+
+    if (isLoading) return <LoadingSpiner isBig={true}></LoadingSpiner>
 
     return (
         <div>
@@ -39,7 +45,9 @@ const SideBar = () => {
                         }  lg:translate-x-0  transition duration-200 ease-in-out`}
                 >
                     <div>
-                        <AdminMenus></AdminMenus>
+
+                        {role === 'admin' && <AdminMenus></AdminMenus>}
+
                     </div>
                     <div>
                         <div className="w-full h-[1px] bg-gray-800"></div>

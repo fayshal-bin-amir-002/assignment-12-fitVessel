@@ -1,6 +1,9 @@
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../../hooks/useAuth";
+import { FaHome } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
+import { CgLogOut } from "react-icons/cg";
 
 const MenuItems = () => {
 
@@ -20,19 +23,19 @@ const MenuItems = () => {
     }
 
     const links = [
-        { label: "Home", address: "/" },
-        { label: "Profile", address: "/profile" }
+        { label: "Home", address: "/", icon: <FaHome className="inline text-xl mr-1" /> },
+        { label: "Profile", address: "/profile", icon: <CgProfile className="inline text-xl mr-1" /> }
     ]
 
     return (
         <ul className="p-4">
             {
                 links.map((link, i) => <li key={i} className="">
-                    <Link to={link.address} className="block text-lg font-medium p-2.5 hover:bg-blue-gray-400 cursor-pointer">{link.label}</Link>
+                    <Link to={link.address} className="block text-lg font-medium p-2.5 hover:bg-blue-gray-200 cursor-pointer">{link.icon} {link.label}</Link>
                 </li>)
             }
-            <li onClick={handleLogout} className="block text-lg font-medium p-2.5 hover:bg-blue-gray-400 cursor-pointer">
-                <span>Log Out</span>
+            <li onClick={handleLogout} className="block text-lg font-medium p-2.5 hover:bg-blue-gray-200 cursor-pointer">
+                <span><CgLogOut className="inline text-xl mr-1" /> Log Out</span>
             </li>
         </ul>
     );

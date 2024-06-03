@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const Community = () => {
 
@@ -57,6 +58,9 @@ const Community = () => {
 
     return (
         <div className="py-8 md:py-12 lg:py-16 min-h-[60vh]">
+            <Helmet>
+                <title>Community Posts | Fit Vessel</title>
+            </Helmet>
             <Container>
                 <div className="flex flex-wrap">
                     {

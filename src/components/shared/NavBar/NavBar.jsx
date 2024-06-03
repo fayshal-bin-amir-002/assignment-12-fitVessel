@@ -46,7 +46,7 @@ const ProfileDropDown = (props) => {
                 >
                     <img
                         src={user?.photoURL || "https://i.postimg.cc/cJ3DWwSx/360-F-553796090-XHr-E6-R9jwm-BJUMo9-HKl41hy-HJ5gqt9oz.jpg"}
-                        className="w-full h-full rounded-full z-40"
+                        className="w-full h-full rounded-full z-40 object-cover"
                     />
                 </button>
                 <div className="lg:hidden">

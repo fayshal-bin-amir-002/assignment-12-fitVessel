@@ -9,7 +9,7 @@ const Profile = () => {
 
     const { user, loading } = useAuth();
 
-    const { data: role, isLoading, refetch } = useRole();
+    const { role, isLoading, refetch } = useRole();
 
     const [isOpen, setIsOpen] = useState(false)
 
@@ -40,7 +40,7 @@ const Profile = () => {
 
                     <div className="sm:w-[80%] xs:w-[90%] mx-auto flex">
                         <img src={user?.photoURL} alt="User Profile"
-                            className="rounded-md lg:w-[12rem] lg:h-[12rem] md:w-[10rem] md:h-[10rem] sm:w-[8rem] sm:h-[8rem] xs:w-[7rem] xs:h-[7rem] outline outline-2 outline-offset-2 outline-blue-500 relative lg:bottom-[5rem] sm:bottom-[4rem] xs:bottom-[3rem] break-words" />
+                            className="rounded-md lg:w-[12rem] lg:h-[12rem] md:w-[10rem] md:h-[10rem] sm:w-[8rem] sm:h-[8rem] xs:w-[7rem] xs:h-[7rem] outline outline-2 outline-offset-2 outline-blue-500 relative lg:bottom-[5rem] sm:bottom-[4rem] xs:bottom-[3rem] break-words object-cover" />
 
 
                         <h1

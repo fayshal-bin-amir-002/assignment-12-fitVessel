@@ -4,6 +4,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import LoadingSpiner from "../../components/shared/LoadingSpiner/LoadingSpiner";
 import ClassCard from "./ClassCard";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const AllClasses = () => {
 
@@ -29,6 +30,9 @@ const AllClasses = () => {
 
     return (
         <div className="min-h-[60vh] py-8 md:py-8 lg:py-12">
+            <Helmet>
+                <title>All Classes | Fit Vessel</title>
+            </Helmet>
             <Container>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
                     {

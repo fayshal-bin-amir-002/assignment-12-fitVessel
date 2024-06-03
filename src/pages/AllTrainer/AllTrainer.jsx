@@ -3,6 +3,7 @@ import Container from "../../components/shared/Container/Container";
 import LoadingSpiner from "../../components/shared/LoadingSpiner/LoadingSpiner";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import TrainerProfileCard from "./TrainerProfileCard";
+import { Helmet } from "react-helmet-async";
 
 const AllTrainer = () => {
 
@@ -20,6 +21,9 @@ const AllTrainer = () => {
 
     return (
         <div className='min-h-[60vh] py-14 md:py-20 lg:py-28'>
+            <Helmet>
+                <title>All Trainers | Fit Vessel</title>
+            </Helmet>
             <Container>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
                     {
