@@ -2,17 +2,20 @@ import Select from 'react-select';
 import { Button, Checkbox, Input, Textarea } from "@material-tailwind/react";
 import Container from "../../components/shared/Container/Container";
 import useAuth from "../../hooks/useAuth";
-import { classes } from "../../utils/classes";
 import { days } from "../../utils/days";
 import { useState } from "react";
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { Helmet } from 'react-helmet-async';
+import useClassesName from '../../hooks/useClassesName';
+import LoadingSpiner from '../../components/shared/LoadingSpiner/LoadingSpiner';
 
 const TrainerRequest = () => {
 
     const axiosSecure = useAxiosSecure();
+
+    const { classes, isLoading } = useClassesName();
 
     const [selectedOption, setSelectedOption] = useState(null);
     const [skillsAr, setSkillsAr] = useState([]);
@@ -59,8 +62,8 @@ const TrainerRequest = () => {
         const experience = parseInt(form.experience.value);
         const status = "pending";
 
-        if(skills.length === 0) return toast.error("Select skills!");
-        if(availableDays.length === 0) return toast.error("Select days!");
+        if (skills.length === 0) return toast.error("Select skills!");
+        if (availableDays.length === 0) return toast.error("Select days!");
 
         const newTrainer = {
             name, email, image, age, skills, availableDays, availableTime, classDuration, biography, experience, status
@@ -77,6 +80,8 @@ const TrainerRequest = () => {
         }
 
     }
+
+    if(isLoading) return <LoadingSpiner isBig={true}></LoadingSpiner>
 
     return (
         <div className="py-8 md:py-12 lg:py-16 min-h-[60vh]">
@@ -100,7 +105,7 @@ const TrainerRequest = () => {
                                 <small className="ms-3">Skills : </small>
                                 <div className="flex gap-x-3 gap-y-1 flex-wrap">
                                     {
-                                        classes.map((skill, i) => <Checkbox key={i} onChange={(e) => handleCheck(e.target.checked, e.target.value)} value={skill} label={skill} />)
+                                        classes.map((skill, i) => <Checkbox key={i} onChange={(e) => handleCheck(e.target.checked, e.target.value)} value={skill.name} label={skill.name} />)
                                     }
                                 </div>
                             </div>
