@@ -44,8 +44,8 @@ const Community = () => {
 
     const handleVote = async (vote, id) => {
 
-        if(!user) return toast.error("Please login first!");
-        
+        if (!user) return toast.error("Please login first!");
+
         const voting = { vote, id };
         try {
             await mutateAsync(voting)
@@ -71,9 +71,9 @@ const Community = () => {
                                 <div className="flex flex-col justify-between px-4 py-6 bg-white border border-gray-400 text">
                                     <div>
                                         <div className="flex justify-between items-center mb-4">
-                                            <p
-                                                className="inline-block text-xs font-bold capitalize border-b-2 border-[#DC5F00]">
-                                                {blog.author}
+                                            <p>
+                                                <span className="inline-block text-sm font-bold capitalize border-b-2 border-[#DC5F00]">{blog.author}</span>
+                                                <span className="bg-[#DC5F00] px-1 py-0.5 font-semibold text-xs rounded-sm text-white uppercase ms-3">{blog.role}</span>
                                             </p>
                                             <p>{blog.postDate}</p>
                                         </div>

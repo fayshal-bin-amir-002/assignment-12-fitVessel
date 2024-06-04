@@ -54,7 +54,7 @@ const ProfileDropDown = (props) => {
                     <span className="block text-sm text-gray-500">{user?.email || "Not set"}</span>
                 </div>
             </div>
-            <ul className={`bg-white top-12 right-0 mt-5 space-y-5 lg:absolute lg:border lg:rounded-md lg:text-sm lg:w-52 lg:shadow-md lg:space-y-0 lg:mt-0 ${state ? '' : 'lg:hidden'}`}>
+            <ul className={`bg-[#EEEEEE] top-12 right-0 mt-5 space-y-5 lg:absolute lg:border lg:rounded-md lg:text-sm lg:w-52 lg:shadow-md lg:space-y-0 lg:mt-0 ${state ? '' : 'lg:hidden'}`}>
                 {
                     navigation.map((item, idx) => (
                         <li key={idx}>
@@ -94,7 +94,7 @@ const NavBar = () => {
         { title: "All Classes", path: "/all-classes" },
     ]
     return (
-        <div className="bg-white bg-opacity-80 sticky top-0 z-30">
+        <div className="bg-[#EEEEEE] bg-opacity-80 sticky top-0 z-30">
             <Container>
                 <nav className=" bg-opacity-80">
                     <div className="flex items-center space-x-24 py-3">
@@ -102,7 +102,7 @@ const NavBar = () => {
                             <Link to="/" className="text-2xl md:text-3xl lg:text-4xl font-ubuntu font-medium">Fit<span className="text-[#DC5F00]">Vessel</span></Link>
                         </div>
                         <div className="flex-1 flex items-center justify-between">
-                            <div className={`bg-white p-3 lg:bg-transparent absolute z-20 w-full top-16 left-0  border-b lg:static lg:block lg:border-none ${menuState ? '' : 'hidden'}`}>
+                            <div className={`bg-[#EEEEEE] p-3 lg:bg-transparent absolute z-20 w-full top-[56px] left-0  border-b lg:static lg:block lg:border-none ${menuState ? '' : 'hidden'}`}>
                                 <ul className="mt-12 space-y-5 space-x-5 lg:flex lg:space-x-12 lg:space-y-0 lg:mt-0">
                                     {
                                         navigation.map((item, idx) => (
