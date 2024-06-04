@@ -11,6 +11,7 @@ import { RxCross2 } from "react-icons/rx";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import TrainerRejectModal from "../../Modals/TrainerRejectModal";
+import { Link } from "react-router-dom";
 
 
 const AppliedTrainers = () => {
@@ -160,7 +161,9 @@ const AppliedTrainers = () => {
                                                 color="black"
                                                 className="font-normal text-white flex items-center gap-3"
                                             >
-                                                <button className="p-2 bg-gray-500 rounded-full hover:bg-gray-700 duration-200"><IoEyeOutline className="text-xl" /></button>
+                                                <Link to={`applied-trainer-details/${trainer._id}`}>
+                                                    <button className="p-2 bg-gray-500 rounded-full hover:bg-gray-700 duration-200"><IoEyeOutline className="text-xl" /></button>
+                                                </Link>
                                                 <button onClick={() => handleTrainerReq(trainer, "accept")} className="p-2 bg-green-300 rounded-full hover:bg-green-500 duration-200"><TiTick className="text-xl" /></button>
                                                 <button onClick={() => handleTrainerReq(trainer, "reject")} className="p-2 bg-red-300 rounded-full hover:bg-red-500 duration-200"><RxCross2 className="text-xl" /></button>
                                             </Typography>

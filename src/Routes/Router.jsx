@@ -1,4 +1,4 @@
-import { Route, createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout"
 import Home from "../pages/Home/Home";
 import Register from "../pages/Register/Register";
@@ -25,6 +25,7 @@ import AddNewForum from "../components/DashBoard/AddNewForum/AddNewForum";
 import TrainerRoute from "./TrainerRoute";
 import ManageSlots from "../components/DashBoard/Trainer/ManageSlots/ManageSlots";
 import AddNewSlot from "../components/DashBoard/Trainer/AddNewSlot/AddNewSlot";
+import AppliedTrainerDetails from "../pages/AppliedTrainerDetails/AppliedTrainerDetails";
 
 const router = createBrowserRouter([
   {
@@ -116,6 +117,10 @@ const router = createBrowserRouter([
       {
         path: "addNew-slot",
         element: <TrainerRoute><AddNewSlot></AddNewSlot></TrainerRoute>
+      },
+      {
+        path: "/dashboard/applied-trainers/applied-trainer-details/:id",
+        element: <AdminRoute><AppliedTrainerDetails></AppliedTrainerDetails></AdminRoute>
       }
     ]
   }
