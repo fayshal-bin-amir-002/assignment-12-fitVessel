@@ -26,6 +26,7 @@ import TrainerRoute from "./TrainerRoute";
 import ManageSlots from "../components/DashBoard/Trainer/ManageSlots/ManageSlots";
 import AddNewSlot from "../components/DashBoard/Trainer/AddNewSlot/AddNewSlot";
 import AppliedTrainerDetails from "../pages/AppliedTrainerDetails/AppliedTrainerDetails";
+import ActiveLogs from "../components/DashBoard/Member/ActiveLogs/ActiveLogs";
 
 const router = createBrowserRouter([
   {
@@ -121,6 +122,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/applied-trainers/applied-trainer-details/:id",
         element: <AdminRoute><AppliedTrainerDetails></AppliedTrainerDetails></AdminRoute>
+      },
+      {
+        path: "active-logs",
+        element: <PrivetRoute><ActiveLogs></ActiveLogs></PrivetRoute>
       }
     ]
   }

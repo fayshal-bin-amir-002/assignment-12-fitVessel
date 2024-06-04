@@ -5,6 +5,7 @@ import AdminMenus from "../Menus/AdminMenus/AdminMenus";
 import MenuItems from "../Common/MenuItems/MenuItems";
 import useRole from "../../../hooks/useRole";
 import TrainerMenus from "../Menus/TrainerMenus/TrainerMenus";
+import MemberMenus from "../Menus/MemberMenus/MemberMenus";
 // import LoadingSpiner from "../../shared/LoadingSpiner/LoadingSpiner";
 
 const SideBar = () => {
@@ -52,9 +53,13 @@ const SideBar = () => {
                         {
                             role === 'trainer' && <Navigate to="/dashboard/manage-slots"></Navigate>
                         }
+                        {
+                            role === 'member' && <Navigate to="/dashboard/active-logs"></Navigate>
+                        }
 
                         {role === 'trainer' && <TrainerMenus></TrainerMenus>}
                         {role === 'admin' && <AdminMenus></AdminMenus>}
+                        {role === 'member' && <MemberMenus></MemberMenus>}
 
                     </div>
                     <div>
