@@ -38,7 +38,7 @@ const AddNewSlot = () => {
             return data;
         },
         onSuccess: (data) => {
-            if (data.insertedId) {
+            if (data.insertedCount) {
                 toast.success("Slot added successfully");
             } else {
                 toast.error("Something went wrong!");
@@ -55,13 +55,13 @@ const AddNewSlot = () => {
         const classDays = selectedOption;
         const classesName = classes;
 
-        if(!name) return toast.error("Select slot name!");
-        if(classDays === null || classDays.length === 0) return toast.error("Select class days");
-        if(classesName === null || classesName.length === 0) return toast.error("Select classes!");
+        if (!name) return toast.error("Select slot name!");
+        if (classDays === null || classDays.length === 0) return toast.error("Select class days");
+        if (classesName === null || classesName.length === 0) return toast.error("Select classes!");
 
         const slotData = {
-            slotName: name,
-            slotTime: time,
+            'slotName': name,
+            'slotTime': time,
             classDays,
             classesName,
             trainer: {
@@ -72,8 +72,27 @@ const AddNewSlot = () => {
             status: 'available'
         }
 
+        let allSlots = [];
+
+        classDays.forEach(day => {
+            allSlots.push({
+                'slotName': name,
+                'slotTime': time,
+                day: day.value,
+                classesName,
+                trainer: {
+                    name: trainer?.name,
+                    email: trainer?.email,
+                    id: trainer?._id
+                },
+                status: 'available'
+            })
+        });
+
+        
+
         try {
-            await mutateAsync(slotData);
+            await mutateAsync(allSlots);
             form.reset();
         } catch(error) {
             toast.error(error.message);

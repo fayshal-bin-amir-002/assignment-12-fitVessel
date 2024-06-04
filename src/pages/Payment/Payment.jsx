@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import Container from "../../components/shared/Container/Container";
 import { Button } from "@material-tailwind/react";
 import { useMutation } from "@tanstack/react-query";
@@ -6,8 +6,12 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
+import PaymentModal from "../../components/Modals/PaymentModal";
 
 const Payment = () => {
+
+    const [isOpen, setIsOpen] = useState(false)
 
     const axiosSecure = useAxiosSecure();
 
@@ -31,13 +35,15 @@ const Payment = () => {
         }
     })
 
-    const savePayment = async () => {
-        try {
-            await mutateAsync(bookingData)
-        } catch (error) {
-            toast.error(error.message);
-        }
+    function open() {
+        setIsOpen(true)
     }
+
+    function close() {
+        setIsOpen(false)
+    }
+
+    if(!bookingData) return <Navigate to='/'></Navigate>
 
     return (
         <div className="py-8 md:py-12 lg:py-16 min-h-[60vh]">
@@ -66,13 +72,14 @@ const Payment = () => {
                         <p><span className="text-lg font-medium">Package :</span> <span className="opacity-80">{bookingData.package}</span></p>
                         <p><span className="text-lg font-medium">Price :</span> <span className="opacity-80">{bookingData.price} $</span></p>
 
-                        <div onClick={savePayment} className="mt-6 text-right">
+                        <div onClick={open} className="mt-6 text-right">
                             <Button type="submit" className="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono font-medium tracking-tighter text-white bg-gray-800 rounded-lg group">
                                 <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-green-500 rounded-full group-hover:w-56 group-hover:h-56"></span>
                                 <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700"></span>
                                 <span className="relative">Pay Now</span>
                             </Button>
                         </div>
+                        <PaymentModal isOpen={isOpen} close={close} bookingData={bookingData}></PaymentModal>
                     </div>
                 </div>
             </Container>

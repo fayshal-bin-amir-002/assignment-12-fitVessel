@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { MdArrowRight } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
 const TrainerProfileCard = ({ trainer }) => {
@@ -17,17 +16,7 @@ const TrainerProfileCard = ({ trainer }) => {
                         <div className="px-6 mt-16">
                             <h1 className="font-semibold text-2xl text-center mb-1">{trainer?.name}</h1>
                             <p className="text-gray-800 text-sm text-center">Experience : {trainer?.experience} year</p>
-                            <div className='flex flex-col text-left gap-2 py-2'>
-                                {
-                                    // trainer.availableDays.map((day, i) => <div key={i} className='bg-green-50 rounded text-sm flex gap-4 items-center'>
-                                    //     <span><MdArrowRight className='inline' /></span>
-                                    //     <span>{day.label}</span>
-                                    //     <span>{trainer?.availableTime}</span>
-                                    //     <span>{trainer?.classDuration} hr</span>
-                                    // </div>)
-
-                                }
-                            </div>
+                            
                             <div className='flex gap-1.5 items-center flex-wrap py-2'>
                                 {
                                     trainer.skills.map((skill, i) => <span key={i} className="border border-green-600 rounded-full px-4 text-xs text-green-600 py-0.5">

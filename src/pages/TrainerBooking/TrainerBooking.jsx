@@ -48,7 +48,8 @@ const TrainerBooking = () => {
             user: {
                 name: user?.displayName,
                 email: user?.email,
-                uid: user?.uid
+                uid: user?.uid,
+                image: user?.image
             }
         }
 

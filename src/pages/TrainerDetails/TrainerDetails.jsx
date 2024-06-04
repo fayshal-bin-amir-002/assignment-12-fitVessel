@@ -98,7 +98,7 @@ const TrainerDetails = () => {
                 <div className="overflow-x-auto mt-8 md:mt-12 lg:mt-16">
                     {
                         slots.length === 0 ? <p className="text-center py-8 text-4xl text-red-400">No Available slot!</p> :
-                            slots.map((slot, i) => <table key={i} className=" w-[800px] overflow-x-auto border-collapse border border-blue-500 mx-auto">
+                            <table className=" w-[800px] overflow-x-auto border-collapse border border-blue-500 mx-auto">
                                 <thead>
                                     <tr className="bg-blue-500 text-white">
                                         <th className="py-3 px-4 text-left">Day</th>
@@ -110,8 +110,8 @@ const TrainerDetails = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        slot.classDays.map((day, i) => <tr key={i} className="bg-white border-b border-blue-500">
-                                            <td className="py-3 px-4">{day.value}</td>
+                                        slots.map((slot, i) => <tr key={i} className="bg-white border-b border-blue-500">
+                                            <td className="py-3 px-4">{slot.day}</td>
                                             <td className="py-3 px-4">{slot.slotName}</td>
                                             <td className="py-3 px-4">{slot.slotTime} hr</td>
                                             <td className="py-3 px-4">
@@ -122,14 +122,14 @@ const TrainerDetails = () => {
                                             <td className="py-3 px-4 min-w-[120px]">
                                                 <Link
                                                     to={`/trainer-booking/${trainer._id}`}
-                                                    state={{ 'day': day.value, 'sTime': slot.slotTime, 'sName': slot.slotName, 'slotId': slot._id, 'class_names': slot.classesName }}
+                                                    state={{ 'day': slot.day, 'sTime': slot.slotTime, 'sName': slot.slotName, 'slotId': slot._id, 'class_names': slot.classesName }}
                                                     className="min-w-max px-3 py-1 bg-green-200 rounded-full text-sm">Book <MdOutlineKeyboardDoubleArrowRight className="inline" /></Link>
                                             </td>
                                         </tr>)
                                     }
 
                                 </tbody>
-                            </table>)
+                            </table>
                     }
                 </div>
                 {/* call on action section */}
