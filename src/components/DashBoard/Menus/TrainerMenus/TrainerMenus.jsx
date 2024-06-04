@@ -6,7 +6,7 @@ import { MdAddToPhotos } from "react-icons/md";
 const TrainerMenus = () => {
 
     const links = [
-        { label: "Manage Slots", to: "/dashboard", icon: <MdManageHistory className="inline text-xl mr-1" /> },
+        { label: "Manage Slots", to: "manage-slots", icon: <MdManageHistory className="inline text-xl mr-1" /> },
         { label: "Add New Slots", to: "addNew-slot", icon: <MdAddToPhotos className="inline text-xl mr-1" /> },
         { label: "Add New Forum", to: "addNew-forum", icon: <VscDiffAdded className="inline text-xl mr-1" /> }
     ]

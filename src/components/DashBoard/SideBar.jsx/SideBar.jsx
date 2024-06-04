@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaBarsStaggered } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import AdminMenus from "../Menus/AdminMenus/AdminMenus";
 import MenuItems from "../Common/MenuItems/MenuItems";
 import useRole from "../../../hooks/useRole";
@@ -46,6 +46,12 @@ const SideBar = () => {
                         }  lg:translate-x-0  transition duration-200 ease-in-out`}
                 >
                     <div>
+                        {
+                            role === 'admin' && <Navigate to="/dashboard/newsletter"></Navigate>
+                        }
+                        {
+                            role === 'trainer' && <Navigate to="/dashboard/manage-slots"></Navigate>
+                        }
 
                         {role === 'trainer' && <TrainerMenus></TrainerMenus>}
                         {role === 'admin' && <AdminMenus></AdminMenus>}

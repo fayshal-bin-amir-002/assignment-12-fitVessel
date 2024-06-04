@@ -9,27 +9,18 @@ import { IoEyeOutline } from "react-icons/io5";
 import { TiTick } from "react-icons/ti";
 import { RxCross2 } from "react-icons/rx";
 import { useState } from "react";
-import TrainerDetailsModal from "../../Modals/TrainerDetailsModal";
 import Swal from "sweetalert2";
 import TrainerRejectModal from "../../Modals/TrainerRejectModal";
 
 
 const AppliedTrainers = () => {
 
-    const [isOpen, setIsOpen] = useState(false)
-
-    function open() {
-        setIsOpen(true)
-    }
-
-    function close() {
-        setIsOpen(false)
-    }
+    const [appliedUser, setAppliedUser] = useState({});
 
     const [isOpenRej, setIsOpenRej] = useState(false)
 
     function openRej() {
-        setIsOpenRej(true)
+        setIsOpenRej(true);
     }
 
     function closeRej() {
@@ -88,6 +79,7 @@ const AppliedTrainers = () => {
                 }
             });
         } else {
+            setAppliedUser(trainer);
             openRej();
         }
     }
@@ -161,25 +153,26 @@ const AppliedTrainers = () => {
                                             {trainer?.status}
                                         </Typography>
                                     </td>
-                                    <td className={classes}>
-                                        <Typography
-                                            variant="small"
-                                            color="black"
-                                            className="font-normal text-white flex items-center gap-3"
-                                        >
-                                            <button onClick={open} className="p-2 bg-gray-500 rounded-full hover:bg-gray-700 duration-200"><IoEyeOutline className="text-xl" /></button>
-                                            <button onClick={() => handleTrainerReq(trainer, "accept")} className="p-2 bg-green-300 rounded-full hover:bg-green-500 duration-200"><TiTick className="text-xl" /></button>
-                                            <button onClick={() => handleTrainerReq(trainer, "reject")} className="p-2 bg-red-300 rounded-full hover:bg-red-500 duration-200"><RxCross2 className="text-xl" /></button>
-                                        </Typography>
-                                        <TrainerDetailsModal isOpen={isOpen} close={close} trainer={trainer}></TrainerDetailsModal>
-                                        <TrainerRejectModal isOpen={isOpenRej} close={closeRej} trainer={trainer} refetch={refetch}></TrainerRejectModal>
-                                    </td>
+                                    <>
+                                        <td className={classes}>
+                                            <Typography
+                                                variant="small"
+                                                color="black"
+                                                className="font-normal text-white flex items-center gap-3"
+                                            >
+                                                <button className="p-2 bg-gray-500 rounded-full hover:bg-gray-700 duration-200"><IoEyeOutline className="text-xl" /></button>
+                                                <button onClick={() => handleTrainerReq(trainer, "accept")} className="p-2 bg-green-300 rounded-full hover:bg-green-500 duration-200"><TiTick className="text-xl" /></button>
+                                                <button onClick={() => handleTrainerReq(trainer, "reject")} className="p-2 bg-red-300 rounded-full hover:bg-red-500 duration-200"><RxCross2 className="text-xl" /></button>
+                                            </Typography>
+                                        </td>
+                                    </>
                                 </tr>
                             );
                         })}
                     </tbody>
                 </table>
             </Card>
+            <TrainerRejectModal isOpen={isOpenRej} close={closeRej} trainer={appliedUser} refetch={refetch}></TrainerRejectModal>
         </div>
     );
 };

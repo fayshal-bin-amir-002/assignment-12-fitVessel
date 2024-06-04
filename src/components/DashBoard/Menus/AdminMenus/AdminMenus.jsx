@@ -11,7 +11,7 @@ import { VscDiffAdded } from "react-icons/vsc";
 const AdminMenus = () => {
 
     const links = [
-        { label: "Newsletter Subscribers", to: "/dashboard", icon: <FaRegNewspaper className="inline text-xl mr-1" /> },
+        { label: "Newsletter Subscribers", to: "newsletter", icon: <FaRegNewspaper className="inline text-xl mr-1" /> },
         { label: "All Trainers", to: "all-trainers-db", icon: <GiRomanToga className="inline text-xl mr-1" /> },
         { label: "Applied Trainers", to: "applied-trainers", icon: <VscGitStashApply className="inline text-xl mr-1" /> },
         { label: "Balance", to: "balance", icon: <MdOutlineAccountBalanceWallet className="inline text-xl mr-1" /> },

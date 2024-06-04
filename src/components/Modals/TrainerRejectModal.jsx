@@ -18,7 +18,8 @@ const TrainerRejectModal = ({ isOpen, close, trainer, refetch }) => {
             const { data } = await axiosSecure.patch(`/updateAppliedTrainersReject?email=${user?.email}`, updatedInfo);
             return data;
         },
-        onSuccess: (data) => { console.log(data);
+        onSuccess: (data) => {
+            console.log(data);
             if (data.modifiedCount === 1) {
                 toast.success("Applied changes successfully.");
                 refetch();
@@ -40,11 +41,11 @@ const TrainerRejectModal = ({ isOpen, close, trainer, refetch }) => {
         };
 
         delete updatedInfo._id;
-        
+
         try {
             await rejectAsTrainer(updatedInfo);
             refetch();
-        } catch(error) {
+        } catch (error) {
             close();
             toast.error(error.message);
         }
@@ -76,29 +77,27 @@ const TrainerRejectModal = ({ isOpen, close, trainer, refetch }) => {
                             leaveTo="opacity-0 transform-[scale(95%)]"
                         >
                             <DialogPanel className="w-full max-w-md rounded-xl border bg-white  p-6">
-                                <>
-                                    <div className="flex flex-col gap-2 opacity-70">
-                                        <p className="text-lg font-medium border-b-2 border-green-300 mb-2">Applied Trainer Details : </p>
-                                        <img src={trainer?.image} className="object-cover w-[130px] h-[150px]" alt="" />
-                                        <p>Name : {trainer?.name}</p>
-                                        <p>Email : {trainer?.email}</p>
-                                        <p>Age : {trainer?.age}</p>
-                                        <p>Experience : {trainer?.experience} Year</p>
-                                        <p>Class Time : {trainer?.availableTime}</p>
-                                        <p>Class Duration : {trainer?.classDuration} hr</p>
-                                        <p>Available Days : {trainer?.availableDays.map((day, i) => <span key={i}> {day.value} </span>)}</p>
-                                        <p>Skills : {trainer?.skills.map((skill, i) => <span key={i}>&apos; {skill.value}&apos; </span>)}</p>
-                                        <p>Biography : {trainer?.biography}</p>
+                                <div className="flex flex-col gap-2 opacity-70">
+                                    <p className="text-lg font-medium border-b-2 border-green-300 mb-2">Applied Trainer Details : </p>
+                                    <img src={trainer?.image} className="object-cover w-[130px] h-[150px]" alt="" />
+                                    <p>Name : {trainer?.name}</p>
+                                    <p>Email : {trainer?.email}</p>
+                                    <p>Age : {trainer?.age}</p>
+                                    <p>Experience : {trainer?.experience} Year</p>
+                                    <p>Class Time : {trainer?.availableTime}</p>
+                                    <p>Class Duration : {trainer?.classDuration} hr</p>
+                                    <p>Available Days : {trainer?.availableDays && trainer?.availableDays.map((day, i) => <span key={i}> {day.value} </span>)}</p>
+                                    <p>Skills : {trainer?.skills && trainer?.skills.map((skill, i) => <span key={i}>&apos; {skill.value}&apos; </span>)}</p>
+                                    <p>Biography : {trainer?.biography}</p>
+                                </div>
+                                <form onSubmit={handleReject} className="mt-4">
+                                    <div>
+                                        <textarea className="w-full h-28 p-3 border border-gray-500 rounded-lg" name="feedback" id="" placeholder="Type your feedback here..."></textarea>
                                     </div>
-                                    <form onSubmit={handleReject} className="mt-4">
-                                        <div>
-                                            <textarea className="w-full h-28 p-3 border border-gray-500 rounded-lg" name="feedback" id="" placeholder="Type your feedback here..."></textarea>
-                                        </div>
-                                        <div className="text-right mt-4">
-                                            <button type="submit" className="px-4 py-2 bg-green-400 text-lg font-medium text-white rounded-lg">Submit</button>
-                                        </div>
-                                    </form>
-                                </>
+                                    <div className="text-right mt-4">
+                                        <button type="submit" className="px-4 py-2 bg-green-400 text-lg font-medium text-white rounded-lg">Submit</button>
+                                    </div>
+                                </form>
                             </DialogPanel>
                         </TransitionChild>
                     </div>
