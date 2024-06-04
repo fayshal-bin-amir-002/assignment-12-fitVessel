@@ -50,16 +50,16 @@ const Payment = () => {
 
                         <p><span className="text-lg font-medium">Your Name : </span> <span className="opacity-80">{bookingData.user.name}</span></p>
                         <p><span className="text-lg font-medium">Your Email : </span> <span className="opacity-80">{bookingData.user.email}</span></p>
-                        <p><span className="text-lg font-medium">Your UID : </span> <span className="opacity-80">{bookingData.user.uid} $</span></p>
+                        <p><span className="text-lg font-medium">Your UID : </span> <span className="opacity-80">{bookingData.user.uid}</span></p>
 
                         <div className="h-[1px] w-full bg-blue-gray-600"></div>
 
                         <p><span className="text-lg font-medium">Trainer Name :</span> <span className="opacity-80">{bookingData.trainer.name}</span></p>
                         <p><span className="text-lg font-medium">Trainer Email :</span> <span className="opacity-80">{bookingData.trainer.email}</span></p>
-                        <p><span className="text-lg font-medium">Class :</span> <span className="opacity-80">{bookingData.class.name}</span></p>
+                        <p><span className="text-lg font-medium">Class Name :</span> <span className="opacity-80">{bookingData.class.cName}</span></p>
                         <p><span className="text-lg font-medium">Day :</span> <span className="opacity-80">{bookingData.class.day}</span></p>
-                        <p><span className="text-lg font-medium">Time :</span> <span className="opacity-80">{bookingData.class.time}</span></p>
-                        <p><span className="text-lg font-medium">Duration :</span> <span className="opacity-80">{bookingData.class.duration} hr</span></p>
+                        <p><span className="text-lg font-medium">Slot :</span> <span className="opacity-80">{bookingData.class.sName}</span></p>
+                        <p><span className="text-lg font-medium">Slot Time :</span> <span className="opacity-80">{bookingData.class.sTime} hr</span></p>
 
                         <div className="h-[1px] w-full bg-blue-gray-600"></div>
 

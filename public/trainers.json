@@ -7,11 +7,14 @@
         "skills": [
             "HIIT Blast",
             "Yoga Flow",
+            "Pilates Core",
             "Cardio Kickboxing",
             "Zumba Dance",
             "Spin Cycle",
+            "Barre Fitness",
             "Meditation and Mindfulness",
-            "CrossFit Fundamentals"
+            "CrossFit Fundamentals",
+            "Powerlifting Basics"
         ],
         "availableDays": [
             {
@@ -35,7 +38,7 @@
                 "label": "Sunday"
             }
         ],
-        "availableTime": "10AM - 6PM",
+        "availableTime": "Morning",
         "classDuration": 1,
         "biography": "Alex Johnson is a dedicated and passionate fitness trainer with over 6 years of experience in the fitness industry. He specializes in a variety of training techniques, from high-intensity interval training to yoga and strength conditioning. Alex is committed to helping his clients achieve their fitness goals through personalized training programs and motivational coaching.",
         "experience": 6,
@@ -46,14 +49,35 @@
         "email": "trainer2@gmail.com",
         "age": 26,
         "image": "https://hips.hearstapps.com/hmg-prod/images/mh-trainer-2-1533577086.png",
-        "skills": [
-            "HIIT Blast",
-            "Yoga Flow",
-            "Cardio Kickboxing",
-            "Zumba Dance",
-            "Spin Cycle",
-            "Meditation and Mindfulness",
-            "CrossFit Fundamentals"
+        "classes": [
+            {
+                "value": "HIIT Blast",
+                "label": "HIIT Blast"
+            },
+            {
+                "value": "Yoga Flow",
+                "label": "Yoga Flow"
+            },
+            {
+                "value": "Cardio Kickboxing",
+                "label": "Cardio Kickboxing"
+            },
+            {
+                "value": "Zumba Dance",
+                "label": "Zumba Dance"
+            },
+            {
+                "value": "Spin Cycle",
+                "label": "Spin Cycle"
+            },
+            {
+                "value": "Meditation and Mindfulness",
+                "label": "Meditation and Mindfulness"
+            },
+            {
+                "value": "CrossFit Fundamentals",
+                "label": "CrossFit Fundamentals"
+            }
         ],
         "availableDays": [
             {
@@ -88,16 +112,43 @@
         "email": "trainer3@gmail.com",
         "age": 28,
         "image": "https://freakinfitness.com/wp-content/uploads/2023/07/Different-Types-of-Personal-Fitness-Trainers-And-Their-Average-Costs_--1024x538.jpg",
-        "skills": [
-            "HIIT Blast",
-            "Yoga Flow",
-            "Pilates Core",
-            "Cardio Kickboxing",
-            "Zumba Dance",
-            "Barre Fitness",
-            "Meditation and Mindfulness",
-            "CrossFit Fundamentals",
-            "Powerlifting Basics"
+        "classes": [
+            {
+                "value": "HIIT Blast",
+                "label": "HIIT Blast"
+            },
+            {
+                "value": "Yoga Flow",
+                "label": "Yoga Flow"
+            },
+            {
+                "value": "Pilates Core",
+                "label": "Pilates Core"
+            },
+            {
+                "value": "Cardio Kickboxing",
+                "label": "Cardio Kickboxing"
+            },
+            {
+                "value": "Zumba Dance",
+                "label": "Zumba Dance"
+            },
+            {
+                "value": "Barre Fitness",
+                "label": "Barre Fitness"
+            },
+            {
+                "value": "Meditation and Mindfulness",
+                "label": "Meditation and Mindfulness"
+            },
+            {
+                "value": "CrossFit Fundamentals",
+                "label": "CrossFit Fundamentals"
+            },
+            {
+                "value": "Powerlifting Basics",
+                "label": "Powerlifting Basics"
+            }
         ],
         "availableDays": [
             {
@@ -128,17 +179,47 @@
         "email": "trainer4@gmail.com",
         "age": 27,
         "image": "https://hips.hearstapps.com/hmg-prod/images/portrait-of-a-trainer-in-gym-royalty-free-image-1584723855.jpg",
-        "skills": [
-            "HIIT Blast",
-            "Yoga Flow",
-            "Pilates Core",
-            "Cardio Kickboxing",
-            "Zumba Dance",
-            "Spin Cycle",
-            "Barre Fitness",
-            "Meditation and Mindfulness",
-            "CrossFit Fundamentals",
-            "Powerlifting Basics"
+        "classes": [
+            {
+                "value": "HIIT Blast",
+                "label": "HIIT Blast"
+            },
+            {
+                "value": "Yoga Flow",
+                "label": "Yoga Flow"
+            },
+            {
+                "value": "Pilates Core",
+                "label": "Pilates Core"
+            },
+            {
+                "value": "Cardio Kickboxing",
+                "label": "Cardio Kickboxing"
+            },
+            {
+                "value": "Zumba Dance",
+                "label": "Zumba Dance"
+            },
+            {
+                "value": "Spin Cycle",
+                "label": "Spin Cycle"
+            },
+            {
+                "value": "Barre Fitness",
+                "label": "Barre Fitness"
+            },
+            {
+                "value": "Meditation and Mindfulness",
+                "label": "Meditation and Mindfulness"
+            },
+            {
+                "value": "CrossFit Fundamentals",
+                "label": "CrossFit Fundamentals"
+            },
+            {
+                "value": "Powerlifting Basics",
+                "label": "Powerlifting Basics"
+            }
         ],
         "availableDays": [
             {

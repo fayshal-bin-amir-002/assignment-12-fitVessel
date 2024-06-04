@@ -17,7 +17,7 @@ const TeamCard = ({ team }) => {
                     <div className='flex gap-1.5 items-center flex-wrap pt-2'>
                         {
                             team.skills.map((skill, i) => <span key={i} className="border border-green-600 rounded-full px-4 text-xs text-green-600 py-0.5">
-                                {skill}
+                                {skill.value}
                             </span>)
                         }
                     </div>

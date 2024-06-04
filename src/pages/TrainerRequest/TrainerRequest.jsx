@@ -19,17 +19,16 @@ const TrainerRequest = () => {
 
     const [selectedOption, setSelectedOption] = useState(null);
     const [skillsAr, setSkillsAr] = useState([]);
-    const [time1AMPM, setTime1AMPM] = useState("AM");
-    const [time2AMPM, setTime2AMPM] = useState("AM");
+    const [availableTimeDay, setAvailableTimeDay] = useState("");
 
     const { user } = useAuth();
 
     const handleCheck = (checked, value) => {
-        const exist = skillsAr.includes(value);
-        if (!exist && checked) setSkillsAr([...skillsAr, value])
+        const exist = skillsAr.find((sA) => sA.value === value);
+        if (!exist && checked) setSkillsAr([...skillsAr, {value: value, label: value}])
         if (exist && !checked) {
-            const idx = skillsAr.indexOf(value);
-            skillsAr.splice(idx, 1)
+            const newAr = skillsAr.filter((sA) => sA.value !== value);
+            setSkillsAr([...newAr]);
         }
     }
 
@@ -56,7 +55,7 @@ const TrainerRequest = () => {
         const age = parseInt(form.age.value);
         const skills = skillsAr;
         const availableDays = selectedOption;
-        const availableTime = `${form.time1.value}${time1AMPM} - ${form.time2.value}${time2AMPM}`;
+        const availableTime = availableTimeDay;
         const classDuration = parseFloat(form.duration.value);
         const biography = form.biography.value;
         const experience = parseInt(form.experience.value);
@@ -71,7 +70,6 @@ const TrainerRequest = () => {
 
         try {
             await mutateAsync(newTrainer);
-            setSelectedOption(null);
             form.reset();
         } catch (error) {
             setSelectedOption(null);
@@ -81,7 +79,7 @@ const TrainerRequest = () => {
 
     }
 
-    if(isLoading) return <LoadingSpiner isBig={true}></LoadingSpiner>
+    if (isLoading) return <LoadingSpiner isBig={true}></LoadingSpiner>
 
     return (
         <div className="py-8 md:py-12 lg:py-16 min-h-[60vh]">
@@ -112,6 +110,7 @@ const TrainerRequest = () => {
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
                                 <Input name="experience" type="number" label="Experience (Year)" className="bg-white" required />
                                 <Select
+                                    placeholder='Select Available Days'
                                     defaultValue={selectedOption}
                                     onChange={setSelectedOption}
                                     options={days}
@@ -121,18 +120,14 @@ const TrainerRequest = () => {
                             </div>
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
                                 <Input name="duration" type="number" label="Class Duration (Hour)" className="bg-white" required />
-                                <div className='grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6'>
-                                    <Input name="time1" type="number" label="Class Start" className="bg-white" required />
-                                    <select onChange={(e) => setTime1AMPM(e.target.value)} className='rounded-lg p-2'>
-                                        <option value="AM">AM</option>
-                                        <option value="PM">PM</option>
-                                    </select>
-                                    <Input name="time2" type="number" label="Class End" className="bg-white" required />
-                                    <select onChange={(e) => setTime2AMPM(e.target.value)} className='rounded-lg p-2'>
-                                        <option value="AM">AM</option>
-                                        <option value="PM">PM</option>
-                                    </select>
-                                </div>
+                                <select defaultValue={''} onChange={(e) => setAvailableTimeDay(e.target.value)} className='rounded-lg p-2 text-gray-600'>
+                                    <option value='' disabled>Available Time</option>
+                                    <option value="Morning">Morning</option>
+                                    <option value="Noon">Noon</option>
+                                    <option value="Afternoon">Afternoon</option>
+                                    <option value="Evening">Evening</option>
+                                    <option value="Night">Night</option>
+                                </select>
                             </div>
                             <div className="grid grid-cols-1">
                                 <Textarea name='biography' label="Biography" required />

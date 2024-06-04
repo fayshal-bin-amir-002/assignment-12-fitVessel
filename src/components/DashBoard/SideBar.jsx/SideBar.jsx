@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import AdminMenus from "../Menus/AdminMenus/AdminMenus";
 import MenuItems from "../Common/MenuItems/MenuItems";
 import useRole from "../../../hooks/useRole";
+import TrainerMenus from "../Menus/TrainerMenus/TrainerMenus";
 // import LoadingSpiner from "../../shared/LoadingSpiner/LoadingSpiner";
 
 const SideBar = () => {
@@ -46,6 +47,7 @@ const SideBar = () => {
                 >
                     <div>
 
+                        {role === 'trainer' && <TrainerMenus></TrainerMenus>}
                         {role === 'admin' && <AdminMenus></AdminMenus>}
 
                     </div>

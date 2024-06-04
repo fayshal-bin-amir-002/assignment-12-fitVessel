@@ -87,7 +87,7 @@ const TrainerRejectModal = ({ isOpen, close, trainer, refetch }) => {
                                         <p>Class Time : {trainer?.availableTime}</p>
                                         <p>Class Duration : {trainer?.classDuration} hr</p>
                                         <p>Available Days : {trainer?.availableDays.map((day, i) => <span key={i}> {day.value} </span>)}</p>
-                                        <p>Skills : {trainer?.skills.map((skill, i) => <span key={i}>&apos; {skill}&apos; </span>)}</p>
+                                        <p>Skills : {trainer?.skills.map((skill, i) => <span key={i}>&apos; {skill.value}&apos; </span>)}</p>
                                         <p>Biography : {trainer?.biography}</p>
                                     </div>
                                     <form onSubmit={handleReject} className="mt-4">

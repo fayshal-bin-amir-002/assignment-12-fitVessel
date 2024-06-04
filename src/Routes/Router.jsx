@@ -22,6 +22,9 @@ import AppliedTrainers from "../components/DashBoard/AppliedTrainers/AppliedTrai
 import AddNewClass from "../components/DashBoard/AddNewClass/AddNewClass";
 import AdminTrainerRoute from "./AdminTrainerRoute";
 import AddNewForum from "../components/DashBoard/AddNewForum/AddNewForum";
+import TrainerRoute from "./TrainerRoute";
+import ManageSlots from "../components/DashBoard/Trainer/ManageSlots/ManageSlots";
+import AddNewSlot from "../components/DashBoard/Trainer/AddNewSlot/AddNewSlot";
 
 const router = createBrowserRouter([
   {
@@ -87,8 +90,12 @@ const router = createBrowserRouter([
     element: <PrivetRoute><DashBoard></DashBoard></PrivetRoute>,
     children: [
       {
-        index: true,
+        path: "*",
         element: <AdminRoute><NewsLetter></NewsLetter></AdminRoute>
+      },
+      {
+        path: '*',
+        element: <TrainerRoute><ManageSlots></ManageSlots></TrainerRoute>
       },
       {
         path: "all-trainers-db",
@@ -105,6 +112,10 @@ const router = createBrowserRouter([
       {
         path: "addNew-forum",
         element: <AdminTrainerRoute><AddNewForum></AddNewForum></AdminTrainerRoute>
+      },
+      {
+        path: "addNew-slot",
+        element: <TrainerRoute><AddNewSlot></AddNewSlot></TrainerRoute>
       }
     ]
   }
