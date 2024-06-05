@@ -27,6 +27,7 @@ import ManageSlots from "../components/DashBoard/Trainer/ManageSlots/ManageSlots
 import AddNewSlot from "../components/DashBoard/Trainer/AddNewSlot/AddNewSlot";
 import AppliedTrainerDetails from "../pages/AppliedTrainerDetails/AppliedTrainerDetails";
 import ActiveLogs from "../components/DashBoard/Member/ActiveLogs/ActiveLogs";
+import BookedTrainer from "../components/DashBoard/Member/BookedTrainer/BookedTrainer";
 
 const router = createBrowserRouter([
   {
@@ -126,6 +127,10 @@ const router = createBrowserRouter([
       {
         path: "active-logs",
         element: <PrivetRoute><ActiveLogs></ActiveLogs></PrivetRoute>
+      },
+      {
+        path: "booked-trainer",
+        element: <PrivetRoute><BookedTrainer></BookedTrainer></PrivetRoute>
       }
     ]
   }
