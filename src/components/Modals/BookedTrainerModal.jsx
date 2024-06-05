@@ -38,7 +38,7 @@ const BookedTrainerModal = ({ isOpen, close, info }) => {
                                         <div className="h-[1px] w-full bg-gray-700"></div>
                                         <p><span className="font-semibold">Package : <span className="text-green-500">{info?.pkg}</span></span></p>
                                         <p><span className="font-semibold">Price : {info?.price} $</span></p>
-                                        <p><span className="font-semibold">Trx Id : {info?.trxId} $</span></p>
+                                        <p><span className="font-semibold">Trx Id : {info?.trxId}</span></p>
                                         <div className="mt-5 text-right">
                                             <button onClick={close} className="px-3 py-2 bg-red-500 text-white rounded-lg">Close</button>
                                         </div>
