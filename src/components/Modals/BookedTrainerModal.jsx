@@ -30,18 +30,20 @@ const BookedTrainerModal = ({ isOpen, close, info }) => {
                             leaveTo="opacity-0 transform-[scale(95%)]"
                         >
                             <DialogPanel className="w-full max-w-md rounded-xl border-[#DC5F00] border bg-gray-50 p-6">
-                                
-                                <div className="p-4 md:p-6 flex flex-col gap-3 lg:gap-4 text-gray-700">
-                                    <p><span className="font-semibold">Trainer Name : {info.trainer.name}</span></p>
-                                    <p><span className="font-semibold">Trainer Email : {info.trainer.email}</span></p>
-                                    <div className="h-[1px] w-full bg-gray-700"></div>
-                                    <p><span className="font-semibold">Package : <span className="text-green-500">{info.pkg}</span></span></p>
-                                    <p><span className="font-semibold">Price : {info.price} $</span></p>
-                                    <p><span className="font-semibold">Trx Id : {info.trxId} $</span></p>
-                                    <div className="mt-5 text-right">
-                                        <button onClick={close} className="px-3 py-2 bg-red-500 text-white rounded-lg">Close</button>
+
+                                {
+                                    info && <div className="p-4 md:p-6 flex flex-col gap-3 lg:gap-4 text-gray-700">
+                                        <p><span className="font-semibold">Trainer Name : {info?.trainer?.name}</span></p>
+                                        <p><span className="font-semibold">Trainer Email : {info?.trainer?.email}</span></p>
+                                        <div className="h-[1px] w-full bg-gray-700"></div>
+                                        <p><span className="font-semibold">Package : <span className="text-green-500">{info?.pkg}</span></span></p>
+                                        <p><span className="font-semibold">Price : {info?.price} $</span></p>
+                                        <p><span className="font-semibold">Trx Id : {info?.trxId} $</span></p>
+                                        <div className="mt-5 text-right">
+                                            <button onClick={close} className="px-3 py-2 bg-red-500 text-white rounded-lg">Close</button>
+                                        </div>
                                     </div>
-                                </div>
+                                }
 
                             </DialogPanel>
                         </TransitionChild>

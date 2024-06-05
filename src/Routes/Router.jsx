@@ -28,6 +28,7 @@ import AddNewSlot from "../components/DashBoard/Trainer/AddNewSlot/AddNewSlot";
 import AppliedTrainerDetails from "../pages/AppliedTrainerDetails/AppliedTrainerDetails";
 import ActiveLogs from "../components/DashBoard/Member/ActiveLogs/ActiveLogs";
 import BookedTrainer from "../components/DashBoard/Member/BookedTrainer/BookedTrainer";
+import Balance from "../components/DashBoard/Balance/Balance";
 
 const router = createBrowserRouter([
   {
@@ -115,6 +116,10 @@ const router = createBrowserRouter([
       {
         path: "addNew-forum",
         element: <AdminTrainerRoute><AddNewForum></AddNewForum></AdminTrainerRoute>
+      },
+      {
+        path: "balance",
+        element: <AdminRoute><Balance></Balance></AdminRoute>
       },
       {
         path: "addNew-slot",
