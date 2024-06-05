@@ -6,6 +6,7 @@ import { useState } from "react";
 import { IoEyeOutline } from "react-icons/io5";
 import EmptyData from "../../../shared/EmptyData/EmptyData";
 import BookedTrainerModal from "../../../Modals/BookedTrainerModal";
+import { Card, Typography } from "@material-tailwind/react";
 
 const BookedTrainer = () => {
 
@@ -37,41 +38,105 @@ const BookedTrainer = () => {
         setIsOpen(false);
     }
 
+    const TABLE_HEAD = ["", "Day", "Class", "Slot Name", "Slot Time", "Action"];
+
     if (loading || isLoading) return <LoadingSpiner isBig={true}></LoadingSpiner>
 
     return (
         <>
-            <div className="flex justify-center items-center min-h-screen">
-                {
-                    myBooking.length === 0 ? <EmptyData title={"No data available in Booked Trainer!"}></EmptyData> :
-                        <table className=" w-[800px] overflow-x-auto border-collapse border border-blue-500 mx-auto">
-                            <thead>
-                                <tr className="bg-blue-500 text-white">
-                                    <th className="py-3 px-4 text-left">Day</th>
-                                    <th className="py-3 px-4 text-left">Class</th>
-                                    <th className="py-3 px-4 text-left">Slot Name</th>
-                                    <th className="py-3 px-4 text-left">Slot Time</th>
-                                    <th className="py-3 px-4 text-center">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    myBooking && myBooking.map((slot, i) => <tr key={i} className="bg-white border-b border-blue-500">
-                                        <td className="py-3 px-4">{slot.class.day}</td>
-                                        <td className="py-3 px-4">{slot.class.cName}</td>
-                                        <td className="py-3 px-4">{slot.class.sName}</td>
-                                        <td className="py-3 px-4">{slot.class.sTime} hr</td>
-                                        <td className="py-3 px-4">
-                                            <button onClick={() => open(slot.trainer, slot.package, slot.price, slot.transactionId)} className="p-2 bg-gray-500 rounded-full hover:bg-gray-700 duration-300 text-white "><IoEyeOutline className="text-xl" /></button>
-                                        </td>
-                                    </tr>)
-                                }
+            {
+                myBooking.length === 0 ? <EmptyData title={"No data available in Booked Trainer!"}></EmptyData> :
+                    <div className="flex justify-center items-center min-h-screen w-full ">
+                        <Card className="h-full w-full md:w-3/4 lg:w-1/2 mx-auto overflow-scroll">
+                            <table className="w-full min-w-max table-auto text-left">
+                                <thead>
+                                    <tr>
+                                        {TABLE_HEAD.map((head) => (
+                                            <th
+                                                key={head}
+                                                className="border-b border-blue-gray-100 bg-blue-gray-100 p-4"
+                                            >
+                                                <Typography
+                                                    variant="small"
+                                                    color="black"
+                                                    className="font-normal leading-none opacity-70"
+                                                >
+                                                    {head}
+                                                </Typography>
+                                            </th>
+                                        ))}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {myBooking && myBooking.map((slot, index) => {
+                                        const isLast = index === myBooking.length - 1;
+                                        const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
 
-                            </tbody>
-                        </table>
-                }
-                <BookedTrainerModal isOpen={isOpen} close={close} info={info}></BookedTrainerModal>
-            </div>
+                                        return (
+                                            <tr key={index}>
+                                                <td className={classes}>
+                                                    <Typography
+                                                        variant="small"
+                                                        color="blue-gray"
+                                                        className="font-normal"
+                                                    >
+                                                        {index + 1}
+                                                    </Typography>
+                                                </td>
+                                                <td className={classes}>
+                                                    <Typography
+                                                        variant="small"
+                                                        color="blue-gray"
+                                                        className="font-normal"
+                                                    >
+                                                        {slot?.class?.day}
+                                                    </Typography>
+                                                </td>
+                                                <td className={classes}>
+                                                    <Typography
+                                                        variant="small"
+                                                        color="blue-gray"
+                                                        className="font-normal"
+                                                    >
+                                                        {slot?.class?.cName}
+                                                    </Typography>
+                                                </td>
+                                                <td className={classes}>
+                                                    <Typography
+                                                        variant="small"
+                                                        color="blue-gray"
+                                                        className="font-normal"
+                                                    >
+                                                        {slot?.class?.sName}
+                                                    </Typography>
+                                                </td>
+                                                <td className={classes}>
+                                                    <Typography
+                                                        variant="small"
+                                                        color="blue-gray"
+                                                        className="font-normal"
+                                                    >
+                                                        {slot?.class?.sTime} Hr
+                                                    </Typography>
+                                                </td>
+                                                <td className={classes}>
+                                                    <Typography
+                                                        variant="small"
+                                                        color="blue-gray"
+                                                        className="font-normal"
+                                                    >
+                                                        <button onClick={() => open(slot.trainer, slot.package, slot.price, slot.transactionId)} className="p-2 bg-gray-500 rounded-full hover:bg-gray-700 duration-300 text-white "><IoEyeOutline className="text-xl" /></button>
+                                                    </Typography>
+                                                </td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                        </Card>
+                        <BookedTrainerModal isOpen={isOpen} close={close} info={info}></BookedTrainerModal>
+                    </div>
+            }
         </>
     );
 };
