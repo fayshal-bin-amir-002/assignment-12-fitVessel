@@ -6,6 +6,7 @@ import MenuItems from "../Common/MenuItems/MenuItems";
 import useRole from "../../../hooks/useRole";
 import TrainerMenus from "../Menus/TrainerMenus/TrainerMenus";
 import MemberMenus from "../Menus/MemberMenus/MemberMenus";
+import { RxCross2 } from "react-icons/rx";
 // import LoadingSpiner from "../../shared/LoadingSpiner/LoadingSpiner";
 
 const SideBar = () => {
@@ -33,7 +34,9 @@ const SideBar = () => {
                     onClick={toggleBar}
                     className='mobile-menu-button p-4 focus:outline-none'
                 >
-                    <FaBarsStaggered className='h-5 w-5' />
+                    {
+                        showSide ? <FaBarsStaggered className='h-5 w-5 text-black' /> : <RxCross2 className="h-6 w-6 text-black" />
+                    }
                 </button>
             </div>
             <div className="flex">
