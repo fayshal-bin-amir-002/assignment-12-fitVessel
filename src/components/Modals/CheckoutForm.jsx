@@ -6,8 +6,11 @@ import { useEffect, useState } from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 import useAuth from '../../hooks/useAuth';
+import { BiLoaderCircle } from 'react-icons/bi';
 
 const CheckoutForm = ({ bookingData, close }) => {
+
+    const [processing, setProcessing] = useState(false);
 
     const { user } = useAuth();
 
@@ -31,15 +34,18 @@ const CheckoutForm = ({ bookingData, close }) => {
     }
 
     const handleSubmit = async (event) => {
+        setProcessing(true);
         event.preventDefault();
 
         if (!stripe || !elements) {
+            setProcessing(false);
             return;
         }
 
         const card = elements.getElement(CardElement);
 
         if (card == null) {
+            setProcessing(false);
             return;
         }
 
@@ -49,6 +55,7 @@ const CheckoutForm = ({ bookingData, close }) => {
         });
 
         if (error) {
+            setProcessing(false);
             return toast.error(error)
         }
 
@@ -63,6 +70,7 @@ const CheckoutForm = ({ bookingData, close }) => {
         })
 
         if (confirmationError) {
+            setProcessing(false);
             return toast.error(confirmationError.message);
         }
 
@@ -70,7 +78,7 @@ const CheckoutForm = ({ bookingData, close }) => {
             const paymentInfo = {
                 ...bookingData,
                 transactionId: paymentIntent.id,
-                data: new Date()
+                date: new Date()
             }
 
             try {
@@ -81,8 +89,9 @@ const CheckoutForm = ({ bookingData, close }) => {
                     text: `Payment success! Your Trx id : ${paymentIntent.id}` ,
                     icon: "success"
                 });
-                
+                setProcessing(false);
             } catch (error) {
+                setProcessing(false);
                 toast.error(error.message);
             }
         }
@@ -108,8 +117,8 @@ const CheckoutForm = ({ bookingData, close }) => {
                 }}
             />
             <div className='text-right'>
-                <button className='bg-green-400 text-white px-3 py-2 rounded-lg mt-12' type="submit" disabled={!stripe}>
-                    Pay ${bookingData.price}
+                <button className='bg-green-400 text-white px-3 py-2 rounded-lg mt-12 disabled:cursor-not-allowed' type="submit" disabled={!stripe || processing}>
+                    { processing ? <BiLoaderCircle className=" animate-spin mx-auto text-lg" /> : `Pay ${bookingData.price}`}
                 </button>
             </div>
         </form>

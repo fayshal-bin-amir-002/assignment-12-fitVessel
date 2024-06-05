@@ -3,6 +3,7 @@ import Container from "../components/shared/Container/Container";
 
 import SideBar from "../components/DashBoard/SideBar.jsx/SideBar";
 import LoadingSpiner from "../components/shared/LoadingSpiner/LoadingSpiner";
+import { Helmet } from "react-helmet-async";
 
 const DashBoard = () => {
 
@@ -10,6 +11,9 @@ const DashBoard = () => {
 
     return (
         <Container>
+            <Helmet>
+                <title>Dashboard</title>
+            </Helmet>
             <SideBar></SideBar>
             <div className="lg:ps-64">
                 {

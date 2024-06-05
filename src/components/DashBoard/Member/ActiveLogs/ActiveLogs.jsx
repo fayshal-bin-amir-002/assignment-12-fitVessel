@@ -39,33 +39,35 @@ const ActiveLogs = () => {
     if (data.length === 0) return <EmptyData title="No data in active logs!"></EmptyData>
 
     return (
-        <div className="flex justify-center items-center min-h-screen">
-            <table className=" w-[800px] overflow-x-auto border-collapse border border-blue-500 mx-auto">
-                <thead>
-                    <tr className="bg-blue-500 text-white">
-                        <th className="py-3 px-4 text-left">Name</th>
-                        <th className="py-3 px-4 text-left">Email</th>
-                        <th className="py-3 px-4 text-left">Status</th>
-                        <th className="py-3 px-4 text-left">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
+        <>
+            <div className="flex justify-center items-center min-h-screen">
+                <table className=" w-[800px] overflow-x-auto border-collapse border border-blue-500 mx-auto">
+                    <thead>
+                        <tr className="bg-blue-500 text-white">
+                            <th className="py-3 px-4 text-left">Name</th>
+                            <th className="py-3 px-4 text-left">Email</th>
+                            <th className="py-3 px-4 text-left">Status</th>
+                            <th className="py-3 px-4 text-left">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                    {
-                        data && data.map((trainer) => <tr key={trainer._id} className="bg-white border-b border-blue-500">
-                            <td className="py-3 px-4">{trainer?.name}</td>
-                            <td className="py-3 px-4">{trainer?.email}</td>
-                            <td className={`${trainer?.status === 'pending' ? 'text-amber-500' : 'text-red-500'} py-3 px-4 capitalize`}>{trainer?.status}</td>
-                            <td className="py-3 px-4">
-                                <button onClick={() => open(trainer?.feedback)} className="p-2 bg-gray-500 rounded-full hover:bg-gray-700 duration-300 text-white disabled:cursor-not-allowed disabled:bg-gray-500" disabled={trainer?.status === 'pending'} ><IoEyeOutline className="text-xl" /></button>
-                            </td>
-                        </tr>)
-                    }
+                        {
+                            data && data.map((trainer) => <tr key={trainer._id} className="bg-white border-b border-blue-500">
+                                <td className="py-3 px-4">{trainer?.name}</td>
+                                <td className="py-3 px-4">{trainer?.email}</td>
+                                <td className={`${trainer?.status === 'pending' ? 'text-amber-500' : 'text-red-500'} py-3 px-4 capitalize`}>{trainer?.status}</td>
+                                <td className="py-3 px-4">
+                                    <button onClick={() => open(trainer?.feedback)} className="p-2 bg-gray-500 rounded-full hover:bg-gray-700 duration-300 text-white disabled:cursor-not-allowed disabled:bg-gray-500" disabled={trainer?.status === 'pending'} ><IoEyeOutline className="text-xl" /></button>
+                                </td>
+                            </tr>)
+                        }
 
-                </tbody>
-            </table>
-            <ActiveLogModal isOpen={isOpen} close={close} message={message}></ActiveLogModal>
-        </div>
+                    </tbody>
+                </table>
+                <ActiveLogModal isOpen={isOpen} close={close} message={message}></ActiveLogModal>
+            </div>
+        </>
     );
 };
 

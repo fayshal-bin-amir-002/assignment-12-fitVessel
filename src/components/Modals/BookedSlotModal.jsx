@@ -33,8 +33,9 @@ const BookedSlotModal = ({ isOpen, close, bookedUser }) => {
                                 
                                 <div>
                                     <h3 className="text-3xl font-medium border-b-2 pb-3 border-black mb-6">Booked By : </h3>
-                                    <p className="mb-3"><span className="font-medium">Name : </span>{bookedUser?.name}</p>
-                                    <p><span className="font-medium">Email : </span>{bookedUser?.email}</p>
+                                    <p><span className="font-medium">Name : </span>{bookedUser?.name}</p>
+                                    <p className="my-3"><span className="font-medium ">Email : </span>{bookedUser?.email}</p>
+                                    <p><span className="font-medium">Class : </span>{bookedUser?.class_name}</p>
                                     <div className="mt-8 mb-3 text-right">
                                         <button className="bg-red-500 text-white px-3 py-2 rounded-lg cursor-pointer" onClick={close}>Close</button>
                                     </div>

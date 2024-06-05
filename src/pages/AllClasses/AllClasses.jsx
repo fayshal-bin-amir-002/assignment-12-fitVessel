@@ -5,7 +5,6 @@ import LoadingSpiner from "../../components/shared/LoadingSpiner/LoadingSpiner";
 import ClassCard from "./ClassCard";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import EmptyData from "../../components/shared/EmptyData/EmptyData";
 
 const AllClasses = () => {
 
@@ -25,7 +24,7 @@ const AllClasses = () => {
             return data;
         }
     })
-console.log(totalclass);
+
     const handleSearch = (e) => {
         e.preventDefault();
         const form = e.target;

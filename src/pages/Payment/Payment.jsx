@@ -1,10 +1,6 @@
 import { Navigate, useLocation } from "react-router-dom";
 import Container from "../../components/shared/Container/Container";
 import { Button } from "@material-tailwind/react";
-import { useMutation } from "@tanstack/react-query";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
-import toast from "react-hot-toast";
-import useAuth from "../../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import PaymentModal from "../../components/Modals/PaymentModal";
@@ -13,27 +9,10 @@ const Payment = () => {
 
     const [isOpen, setIsOpen] = useState(false)
 
-    const axiosSecure = useAxiosSecure();
-
-    const { user } = useAuth();
-
     const { state } = useLocation();
 
     const bookingData = state.bookingData;
 
-    const { mutateAsync } = useMutation({
-        mutationFn: async (paymentData) => {
-            const { data } = await axiosSecure.post(`/payment?email=${user?.email}`, paymentData);
-            return data;
-        },
-        onSuccess: (data) => {
-            if (data.insertedId) {
-                toast.success("Payment successful.");
-            } else {
-                toast.error("Something went wrong!");
-            }
-        }
-    })
 
     function open() {
         setIsOpen(true)

@@ -1,4 +1,4 @@
-import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import Container from "../../components/shared/Container/Container";
 import { useState } from "react";
 import { Button, Option, Select } from "@material-tailwind/react";
@@ -56,6 +56,8 @@ const TrainerBooking = () => {
         navigate("/payment", {state: {bookingData}});
 
     }
+
+    if(!state) return <Navigate to="/"></Navigate>
 
     return (
         <div className="py-8 md:py-12 lg:py-16">
@@ -205,7 +207,7 @@ const TrainerBooking = () => {
                     <div className="w-full lg:w-2/3 xl:w-1/2 bg-gray-100 p-6 md:p-8 lg:p-10 rounded shadow-md space-y-3 lg:space-y-5">
                         <p><span className="text-lg font-medium">Trainer Name :</span> <span className="opacity-80">{trainer.name}</span></p>
                         <p><span className="text-lg font-medium">Trainer Email :</span> <span className="opacity-80">{trainer.email}</span></p>
-                        <p><span className="text-lg font-medium">Day :</span> <span className="opacity-80">{state.day}</span></p>
+                        <p><span className="text-lg font-medium">Day :</span> <span className="opacity-80">{state?.day}</span></p>
                         <p><span className="text-lg font-medium">Slot Name :</span> <span className="opacity-80">{state.sName}</span></p>
                         <p><span className="text-lg font-medium">Slot Time :</span> <span className="opacity-80">{state.sTime} hr</span></p>
                         <p><span className="text-lg font-medium">Package :</span> <span className="opacity-80">{plan}</span></p>

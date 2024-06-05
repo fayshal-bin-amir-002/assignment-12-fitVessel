@@ -107,7 +107,7 @@ const ManageSlots = () => {
                                         <td className={`${slot.status === 'booked' ? 'text-red-500' : 'text-green-500'} py-3 px-4 capitalize`}>{slot.status}</td>
                                         <td className="py-3 px-4 flex items-center justify-center min-w-[150px] h-full gap-4">
                                             <button onClick={() => open(slot.bookedBy)} className="p-2 bg-gray-500 rounded-full hover:bg-gray-700 duration-300 text-white disabled:cursor-not-allowed disabled:bg-gray-500 " disabled={slot.status !== 'booked'}><IoEyeOutline className="text-xl" /></button>
-                                            <button onClick={() => handleDeleteSlot(slot._id)} className="p-2 bg-red-300 rounded-full hover:bg-red-500 duration-200"><RxCross2 className="text-xl" /></button>
+                                            <button onClick={() => handleDeleteSlot(slot._id)} className="p-2 bg-red-300 rounded-full hover:bg-red-500 text-white duration-200"><RxCross2 className="text-xl" /></button>
                                         </td>
                                     </tr>)
                                 }
