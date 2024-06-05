@@ -14,7 +14,7 @@ const Balance = () => {
     useEffect(() => {
         setTimeout(() => {
             setForceLoading(false);
-        }, 1500);
+        }, 2500);
     }, []);
 
     const { user, loading } = useAuth();
@@ -69,7 +69,7 @@ const Balance = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {balanceData.info[0].transactions.map(({ email, transactionId, price }, index) => {
+                            {balanceData.info[0].transactions.slice(0, 6).map(({ email, transactionId, price }, index) => {
                                 const isLast = index === balanceData.info[0].transactions.length - 1;
                                 const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
 

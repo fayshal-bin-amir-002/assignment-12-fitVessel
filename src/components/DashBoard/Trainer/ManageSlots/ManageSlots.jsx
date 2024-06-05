@@ -78,7 +78,7 @@ const ManageSlots = () => {
     if (loading || isLoading) return <LoadingSpiner isBig={true}></LoadingSpiner>
 
     return (
-        <div className="flex justify-center items-center min-h-screen">
+        <div className="flex justify-center items-center min-h-[70vh]">
             <div className="overflow-x-auto mt-8 md:mt-12 lg:mt-16">
                 {
                     slots.length === 0 ? <p className="text-center py-8 text-4xl text-red-400">No Available slot!</p> :
