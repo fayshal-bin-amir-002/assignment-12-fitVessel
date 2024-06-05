@@ -4,9 +4,18 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import LoadingSpiner from "../../shared/LoadingSpiner/LoadingSpiner";
 import { Chart } from "react-google-charts";
+import { useEffect, useState } from "react";
 
 
 const Balance = () => {
+
+    const [forceLoading, setForceLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setForceLoading(false);
+        }, 1500);
+    }, []);
 
     const { user, loading } = useAuth();
 
@@ -26,7 +35,7 @@ const Balance = () => {
     const options = {
         title: "Paid members / NewsLetter Subscribers",
     };
-    
+
     if (loading || isLoading) return <LoadingSpiner isBig={true}></LoadingSpiner>
 
     return (
@@ -110,17 +119,20 @@ const Balance = () => {
                 </Card>
             </div>
 
-            <div className="py-8 md:py-10 lg:py-12">
-                <Chart
-                    chartType="PieChart"
-                    data={balanceData?.chartData}
-                    options={options}
-                    width={"100%"}
-                    height={"400px"}
-                    className="bg-transparent"
-                />
+            {
+                forceLoading ? <LoadingSpiner></LoadingSpiner> :
+                    <div className="py-8 md:py-10 lg:py-12">
+                        <Chart
+                            chartType="PieChart"
+                            data={balanceData?.chartData}
+                            options={options}
+                            width={"100%"}
+                            height={"400px"}
+                            className="bg-transparent"
+                        />
 
-            </div>
+                    </div>
+            }
         </div>
     );
 };

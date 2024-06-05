@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/blog/:id",
-        loader: ({params}) => fetch(`http://localhost:3000/blog/${params.id}`),
+        loader: ({params}) => fetch(`https://fit-vessel-server-side.vercel.app/blog/${params.id}`),
         element: <BlogDetails></BlogDetails>
       },
       {
@@ -67,12 +67,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/trainer-details/:id",
-        loader: ({params}) => fetch(`http://localhost:3000/trainer-details/${params.id}`),
+        loader: ({params}) => fetch(`https://fit-vessel-server-side.vercel.app/trainer-details/${params.id}`),
         element: <TrainerDetails></TrainerDetails>
       },
       {
         path: "/trainer-booking/:id",
-        loader: ({params}) => fetch(`http://localhost:3000/trainer-details/${params.id}`),
+        loader: ({params}) => fetch(`https://fit-vessel-server-side.vercel.app/trainer-details/${params.id}`),
         element: <PrivetRoute><TrainerBooking></TrainerBooking></PrivetRoute>
       },
       {

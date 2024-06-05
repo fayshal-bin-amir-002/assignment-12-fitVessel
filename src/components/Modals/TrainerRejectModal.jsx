@@ -19,7 +19,7 @@ const TrainerRejectModal = ({ isOpen, close, trainer, refetch }) => {
             return data;
         },
         onSuccess: (data) => {
-            console.log(data);
+            
             if (data.modifiedCount === 1) {
                 toast.success("Applied changes successfully.");
                 refetch();
