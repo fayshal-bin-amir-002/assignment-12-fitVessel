@@ -11,16 +11,16 @@ const BlogDetails = () => {
             <Helmet>
                 <title>Blog | Fit Vessel</title>
             </Helmet>
-            <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16 relative">
+            <div className="max-w-screen-xl mx-auto sm:p-10 md:p-16 relative">
                 <div className="bg-cover bg-center text-center overflow-hidden"
                     style={{ minHeight: '500px', backgroundImage: `url(${blog.image})` }}
-                    title="Woman holding a mug">
+                    title="Blog Image">
                 </div>
-                <div className="max-w-3xl mx-auto">
+                <div className="max-w-3xl mx-auto pt-3">
                     <div
                         className="mt-3 bg-white rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
                         <div className="bg-white relative top-0 -mt-32 sm:p-10">
-                            <h1 className="text-gray-900 font-bold text-3xl mb-2">{blog.title}</h1>
+                            <h1 className="text-gray-900 font-bold text-3xl pt-3 mb-2">{blog.title}</h1>
                             <div className="flex justify-between gap-3 items-center mt-6">
                                 <div className="flex flex-col md:flex-row md:items-center gap-2 lg:gap-3">
                                     <img src={blog.author_img} alt="" className="size-10 rounded-full" />

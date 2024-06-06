@@ -51,7 +51,7 @@ const TrainerDetails = () => {
                                             trainer && trainer?.skills.map((skill, i) => <p className="text-sm text-green-400 font-light" key={i}>{skill.value}</p>)
                                         }
                                     </div>
-                                    <p className="mt-3 opacity-80">Biography : {trainer.biography}</p>
+                                    <p className="mt-3 opacity-80">Biography : <span className=" text-gray-700">{trainer.biography}</span></p>
                                     <div className="w-full flex gap-4 md:gap-8 justify-start items-center pt-8">
                                         <Link>
                                             <div aria-label="Github">
