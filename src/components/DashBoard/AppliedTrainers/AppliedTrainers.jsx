@@ -1,32 +1,14 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import toast from "react-hot-toast";
 import LoadingSpiner from "../../shared/LoadingSpiner/LoadingSpiner";
 import { Card, Typography } from "@material-tailwind/react";
 import EmptyData from "../../shared/EmptyData/EmptyData";
 import { IoEyeOutline } from "react-icons/io5";
-import { TiTick } from "react-icons/ti";
-import { RxCross2 } from "react-icons/rx";
-import { useState } from "react";
-import Swal from "sweetalert2";
-import TrainerRejectModal from "../../Modals/TrainerRejectModal";
 import { Link } from "react-router-dom";
 
 
 const AppliedTrainers = () => {
-
-    const [appliedUser, setAppliedUser] = useState({});
-
-    const [isOpenRej, setIsOpenRej] = useState(false)
-
-    function openRej() {
-        setIsOpenRej(true);
-    }
-
-    function closeRej() {
-        setIsOpenRej(false)
-    }
 
     const axiosSecure = useAxiosSecure();
 
@@ -34,7 +16,7 @@ const AppliedTrainers = () => {
 
     const TABLE_HEAD = ["", "Name", "Email", "Status", "Actions"];
 
-    const { data: appliedTrainers = [], isLoading, refetch } = useQuery({
+    const { data: appliedTrainers = [], isLoading } = useQuery({
         queryKey: ['appliedTrainers'],
         enabled: !loading && !!user,
         queryFn: async () => {
@@ -43,47 +25,6 @@ const AppliedTrainers = () => {
         }
     })
 
-    const { mutateAsync: acceptAsTrainer } = useMutation({
-        mutationFn: async (trainer) => {
-            const { data } = await axiosSecure.patch(`/updateAppliedTrainersAccept?email=${user?.email}`, trainer);
-            return data;
-        },
-        onSuccess: (data) => {
-            if (data.modifiedCount === 1) {
-                toast.success("Applied changes successfully.");
-                refetch();
-            } else {
-                toast.error("Something went wrong!");
-            }
-        }
-    })
-
-
-    const handleTrainerReq = async (trainer, action) => {
-
-        if (action === 'accept') {
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You want to make this user as a 'trainer'?",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, sure"
-            }).then(async (result) => {
-                if (result.isConfirmed) {
-                    try {
-                        await acceptAsTrainer(trainer, action)
-                    } catch (error) {
-                        toast.error(error.message);
-                    }
-                }
-            });
-        } else {
-            setAppliedUser(trainer);
-            openRej();
-        }
-    }
 
     if (loading || isLoading) return <LoadingSpiner isBig={true}></LoadingSpiner>
 
@@ -164,8 +105,6 @@ const AppliedTrainers = () => {
                                                 <Link to={`applied-trainer-details/${trainer._id}`}>
                                                     <button className="p-2 bg-gray-500 rounded-full hover:bg-gray-700 duration-200"><IoEyeOutline className="text-xl" /></button>
                                                 </Link>
-                                                <button onClick={() => handleTrainerReq(trainer, "accept")} className="p-2 bg-green-300 rounded-full hover:bg-green-500 duration-200"><TiTick className="text-xl" /></button>
-                                                <button onClick={() => handleTrainerReq(trainer, "reject")} className="p-2 bg-red-300 rounded-full hover:bg-red-500 duration-200"><RxCross2 className="text-xl" /></button>
                                             </Typography>
                                         </td>
                                     </>
@@ -175,7 +114,6 @@ const AppliedTrainers = () => {
                     </tbody>
                 </table>
             </Card>
-            <TrainerRejectModal isOpen={isOpenRej} close={closeRej} trainer={appliedUser} refetch={refetch}></TrainerRejectModal>
         </div>
     );
 };

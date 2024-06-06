@@ -6,10 +6,13 @@ import { Fragment } from "react";
 import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { useNavigate } from "react-router-dom";
 
-const TrainerRejectModal = ({ isOpen, close, trainer, refetch }) => {
+const TrainerRejectModal = ({ isOpen, close, trainer }) => {
 
     const axiosSecure = useAxiosSecure();
+
+    const navigate = useNavigate();
 
     const { user } = useAuth();
 
@@ -22,7 +25,7 @@ const TrainerRejectModal = ({ isOpen, close, trainer, refetch }) => {
             
             if (data.modifiedCount === 1) {
                 toast.success("Applied changes successfully.");
-                refetch();
+                navigate("/dashboard/applied-trainers");
                 close();
             } else {
                 close();
@@ -44,7 +47,6 @@ const TrainerRejectModal = ({ isOpen, close, trainer, refetch }) => {
 
         try {
             await rejectAsTrainer(updatedInfo);
-            refetch();
         } catch (error) {
             close();
             toast.error(error.message);
@@ -111,7 +113,6 @@ const TrainerRejectModal = ({ isOpen, close, trainer, refetch }) => {
 TrainerRejectModal.propTypes = {
     isOpen: PropTypes.bool,
     close: PropTypes.func,
-    refetch: PropTypes.func,
     trainer: PropTypes.object,
 };
 

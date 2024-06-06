@@ -1,10 +1,18 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
 import LoadingSpiner from "../../components/shared/LoadingSpiner/LoadingSpiner";
+import { TiTick } from "react-icons/ti";
+import { RxCross2 } from "react-icons/rx";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
+import { useState } from "react";
+import TrainerRejectModal from "../../components/Modals/TrainerRejectModal";
 
 const AppliedTrainerDetails = () => {
+
+    const [isOpenRej, setIsOpenRej] = useState(false)
 
     const navigate = useNavigate();
 
@@ -22,6 +30,54 @@ const AppliedTrainerDetails = () => {
             return data;
         }
     })
+
+    const { mutateAsync: acceptAsTrainer } = useMutation({
+        mutationFn: async (trainer) => {
+            const { data } = await axiosSecure.patch(`/updateAppliedTrainersAccept?email=${user?.email}`, trainer);
+            return data;
+        },
+        onSuccess: (data) => {
+            if (data.modifiedCount === 1) {
+                toast.success("Applied changes successfully.");
+                navigate("/dashboard/all-trainers-db");
+            } else {
+                toast.error("Something went wrong!");
+            }
+        }
+    })
+
+    const handleTrainerReq = async (action) => {
+
+        if (action === 'accept') {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You want to make this user as a 'trainer'?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, sure"
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    try {
+                        await acceptAsTrainer(appliedTrainer)
+                    } catch (error) {
+                        toast.error(error.message);
+                    }
+                }
+            });
+        } else {
+            openRej();
+        }
+    }
+
+    function openRej() {
+        setIsOpenRej(true);
+    }
+
+    function closeRej() {
+        setIsOpenRej(false)
+    }
 
     if (isLoading) return <LoadingSpiner isBig={true}></LoadingSpiner>
 
@@ -51,7 +107,7 @@ const AppliedTrainerDetails = () => {
                     <p><span className="font-semibold">Biography : </span> {appliedTrainer?.biography}</p>
                     <p><span className="font-semibold">Status : </span> <span className="text-red-500 capitalize">{appliedTrainer?.status}</span></p>
                 </div>
-                <div className="py-5 flex justify-end">
+                <div className="py-5 flex gap-4 justify-end">
                     <button onClick={() => navigate(-1)}
                         className="inline-flex items-center border border-indigo-300 px-3 py-1.5 rounded-md text-indigo-500 hover:bg-indigo-50">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
@@ -60,8 +116,11 @@ const AppliedTrainerDetails = () => {
                         </svg>
                         <span className="ml-1 font-bold text-lg">Go Back</span>
                     </button>
+                    <button onClick={() => handleTrainerReq("accept")} className="px-3 py-1 bg-green-300 text-white rounded-full hover:bg-green-500 duration-200"><TiTick className="text-lg inline" /> Accept</button>
+                    <button onClick={() => handleTrainerReq("reject")} className="px-3 py-1 text-white bg-red-300 rounded-full hover:bg-red-500 duration-200"><RxCross2 className="text-lg inline" /> Reject</button>
                 </div>
             </div>
+            <TrainerRejectModal isOpen={isOpenRej} close={closeRej} trainer={appliedTrainer}></TrainerRejectModal>
         </div>
     );
 };
