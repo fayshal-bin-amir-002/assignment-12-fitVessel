@@ -55,7 +55,7 @@ const AddNewClass = () => {
     }
 
     return (
-        <div className="flex justify-center items-center min-h-screen w-full ">
+        <div className="flex justify-center items-center min-h-[80vh] w-full ">
             <form onSubmit={handleAddClass} className=" bg-gray-100 p-6 md:p-8 lg:p-10 w-full lg:w-10/12 xl:w-1/2 flex flex-col gap-4 lg:gap-6 rounded-lg shadow-md">
                 <Input name="name" type="text" label="Class Name" className="bg-white" required />
                 <Input name="photo" type="file" accept="image" label="Class Image" className="bg-white" required />

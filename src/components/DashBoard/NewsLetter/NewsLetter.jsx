@@ -25,7 +25,7 @@ const NewsLetter = () => {
     if(loading || isLoading) return <LoadingSpiner isBig={true}></LoadingSpiner>
 
     return (
-        <div className="flex justify-center items-center min-h-screen w-full ">
+        <div className="flex justify-center items-center min-h-[70vh] w-full ">
             <Card className="h-full w-full md:w-3/4 lg:w-1/2 mx-auto overflow-scroll">
                 <table className="w-full min-w-max table-auto text-left">
                     <thead>

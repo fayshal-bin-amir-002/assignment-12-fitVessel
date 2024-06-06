@@ -17,8 +17,12 @@ const UpdateProfileModal = ({ isOpen, close, user, refetch }) => {
         const photo = form.photo.files[0];
 
         try {
-            const img_url = await uploadImage(photo);
-            await updateUserProfile(name, img_url)
+            if (photo) {
+                const img_url = await uploadImage(photo)
+                await updateUserProfile(name, img_url)
+            } else {
+                await updateUserProfile(name, user?.photoURL);
+            }
             refetch();
             toast.success("Profile updated successfully");
         } catch (error) {

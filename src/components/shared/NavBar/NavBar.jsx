@@ -94,7 +94,7 @@ const NavBar = () => {
         { title: "All Classes", path: "/all-classes" },
     ]
     return (
-        <div className="bg-[#EEEEEE] bg-opacity-80 sticky top-0 z-30">
+        <div className="bg-[#EEEEEE] backdrop-blur-sm bg-opacity-80 sticky top-0 z-30">
             <Container>
                 <nav className=" bg-opacity-80">
                     <div className="flex items-center space-x-24 py-3">

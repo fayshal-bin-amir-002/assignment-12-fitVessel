@@ -2,9 +2,9 @@
 
 Fit Vessel is a fitness a cutting-edge Fitness Tracker platform.
 
-[@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/)
+[Live link - FitVessel](https://fit-vessel.netlify.app)
 
-- User authenticatial using firebase.
+- User authentication using firebase.
 - Editable user profile system.
 - Booking a trainer by user's.
 - Payment with card without any kind of hassle.

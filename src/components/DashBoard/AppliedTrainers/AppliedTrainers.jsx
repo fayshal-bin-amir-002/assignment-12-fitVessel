@@ -90,7 +90,7 @@ const AppliedTrainers = () => {
     if (appliedTrainers.length === 0) return <EmptyData title="No data in Applied Trainers!!"></EmptyData>
 
     return (
-        <div className="flex justify-center items-center min-h-screen w-full ">
+        <div className="flex justify-center items-center min-h-[70vh] w-full ">
             <Card className="h-full w-full xl:w-3/4 mx-auto overflow-scroll lg:px-12">
                 <table className="w-full min-w-max table-auto text-left">
                     <thead>

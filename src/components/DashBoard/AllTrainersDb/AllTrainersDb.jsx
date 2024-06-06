@@ -67,7 +67,7 @@ const AllTrainersDb = () => {
     if (loading || isLoading) return <LoadingSpiner isBig={true}></LoadingSpiner>
 
     return (
-        <div className="flex justify-center items-center min-h-screen w-full ">
+        <div className="flex justify-center items-center min-h-[80vh] w-full ">
             <Card className="h-full w-full xl:w-3/4 mx-auto overflow-scroll lg:px-12">
                 <table className="w-full min-w-max table-auto text-left">
                     <thead>
