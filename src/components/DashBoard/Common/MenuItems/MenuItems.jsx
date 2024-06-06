@@ -1,5 +1,5 @@
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useAuth from "../../../../hooks/useAuth";
 import { FaHome } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
@@ -9,12 +9,9 @@ const MenuItems = () => {
 
     const { userLogOut } = useAuth();
 
-    const navigate = useNavigate();
-
     const handleLogout = async () => {
         await userLogOut()
         .then(() => {
-            navigate("/");
             toast.success("Logged out succesfully.");
         })
         .catch((error) => {

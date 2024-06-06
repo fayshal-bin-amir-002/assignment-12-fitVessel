@@ -29,27 +29,21 @@ const Register = () => {
 
     const onSubmit = async (data) => {
         setProcessing(true);
-        
-        const photo_url = await uploadImage(data.photoUrl[0]);
-        
-        await userRegister(data.email, data.password)
-        await updateUserProfile(data.name, photo_url)
-            .then(async () => {
-                await userLogOut()
-                    .then(() => {
-                        setProcessing(false);
-                        navigate("/login");
-                        toast.success("Registration successful.");
-                    })
-                    .catch((error) => {
-                        setProcessing(false);
-                        toast.error(error.message);
-                    })
-            })
-            .catch((error) => {
-                setProcessing(false);
-                toast.error(error.message);
-            })
+
+        try {
+            const photo_url = await uploadImage(data.photoUrl[0]);
+
+            await userRegister(data.email, data.password);
+            await updateUserProfile(data.name, photo_url);
+            await userLogOut();
+            setProcessing(false);
+            navigate("/login");
+            toast.success("Registration successful.");
+
+        } catch (error) {
+            setProcessing(false);
+            toast.error(error.message);
+        }
 
     }
 
