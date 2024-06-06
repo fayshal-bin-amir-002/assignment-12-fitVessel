@@ -33,7 +33,7 @@ const AllTrainersDb = () => {
                 refetch();
                 Swal.fire({
                     title: "Deleted!",
-                    text: "Your file has been deleted.",
+                    text: "Trainer is deleted!",
                     icon: "success"
                 });
             } else {
