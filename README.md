@@ -4,6 +4,11 @@ Fit Vessel is a fitness a cutting-edge Fitness Tracker platform.
 
 [Live link - FitVessel](https://fit-vessel.netlify.app)
 
+# Admin
+- Email : admin@gmail.com
+- Password : aA@123
+
+# Features
 - User authentication using firebase.
 - Editable user profile system.
 - Booking a trainer by user's.
